@@ -319,7 +319,7 @@ make ARCH=${CARDS_ARCH} \
 CROSS_COMPILE=${CARDS_TARGET}-
 make ARCH=${CARDS_ARCH} \
 CROSS_COMPILE=${CARDS_TARGET}- \
-INSTALL_MOD_PATH=${CARDS} INSTALL_MOD_STRIP=1 modules_install
+INSTALL_MOD_PATH=${CARDS} modules_install
 
 # Copy files into GRUB boot folder
 cp arch/x86/boot/bzImage ${CARDS}/boot/vmlinuz-${LINUX_VERSION}

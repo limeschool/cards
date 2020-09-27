@@ -231,7 +231,7 @@ wget https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz
 wget https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.bz2
 wget https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.xz
 wget https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VERSION}.tar.gz
-tar xvf gcc-${GCC_VERSION}.tar.gz
+tar xf gcc-${GCC_VERSION}.tar.gz
 # Building a statically compiled toolchain to later build glibc, which will later link to GCC cross compiler
 tar xjf gmp-${GMP_VERSION}.tar.bz2
 mv gmp-${GMP_VERSION} gcc-${GCC_VERSION}/gmp

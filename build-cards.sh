@@ -374,4 +374,4 @@ sudo chmod 4755 ${CARDS}-copy/bin/busybox
 
 # Create final disk image
 cd ${CARDS}-copy/
-mkisofs -J -r -o cards.iso .
+sudo mkisofs -J -r -o cards.iso .

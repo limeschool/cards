@@ -223,7 +223,7 @@ cd binutils-build/
 make configure-host && make
 ln -sv lib ${CARDS}/cross-tools/lib64
 make install
-cp -v ../binutils-${BINUTILS_VERSION}/include/libiberty.h ${CARDS}/usr/include
+cp ../binutils-${BINUTILS_VERSION}/include/libiberty.h ${CARDS}/usr/include
 cd ../
 
 # TODO: Download GCC, uncompress tarball
@@ -294,20 +294,20 @@ AR=ar LDFLAGS="-Wl,-rpath,${CARDS}/cross-tools/lib" \
 --with-mpfr-lib=$(pwd)/mpfr/src/.libs \
 --disable-multilib --with-arch=${CARDS_CPU}
 make && make install
-cp -v ${CARDS}/cross-tools/${CARDS_TARGET}/lib64/libgcc_s.so.1 ${CARDS}/lib64
+cp ${CARDS}/cross-tools/${CARDS_TARGET}/lib64/libgcc_s.so.1 ${CARDS}/lib64
 cd ../
 
 
 # TODO: Download BusyBox, uncompress tarball, change directory into it
 wget https://www.busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2
-tar -xvjf busybox-${BUSYBOX_VERSION}.tar.bz2
+tar -xjf busybox-${BUSYBOX_VERSION}.tar.bz2
 cd busybox-${BUSYBOX_VERSION}
 # BusyBox coreutils
 make CROSS_COMPILE="${CARDS_TARGET}-" defconfig # Use default utilities and libraries
 make CROSS_COMPILE="${CARDS_TARGET}-"
 make CROSS_COMPILE="${CARDS_TARGET}-" \
 CONFIG_PREFIX="${CARDS}" install
-cp -v examples/depmod.pl ${CARDS}/cross-tools/bin # Install Perl script that will be used to build kernel later
+cp examples/depmod.pl ${CARDS}/cross-tools/bin # Install Perl script that will be used to build kernel later
 
 # TODO: Change into Linux kernel directory
 cd linux-${LINUX_VERSION}
@@ -324,9 +324,9 @@ CROSS_COMPILE=${CARDS_TARGET}- \
 INSTALL_MOD_PATH=${CARDS} INSTALL_MOD_STRIP=1 modules_install
 
 # Copy files into GRUB boot folder
-cp -v arch/x86/boot/bzImage ${CARDS}/boot/vmlinuz-${LINUX_VERSION}
-cp -v System.map ${CARDS}/boot/System.map-${LINUX_VERSION}
-cp -v .config ${CARDS}/boot/config-${LINUX_VERSION}
+cp arch/x86/boot/bzImage ${CARDS}/boot/vmlinuz-${LINUX_VERSION}
+cp System.map ${CARDS}/boot/System.map-${LINUX_VERSION}
+cp .config ${CARDS}/boot/config-${LINUX_VERSION}
 
 # Run BusyBox's Perl script
 ${CARDS}/cross-tools/bin/depmod.pl \

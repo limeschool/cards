@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set +h
+set +h
 umask 022
 export CARDS=~/cards
 export LC_ALL=POSIX
@@ -23,24 +23,24 @@ export READELF="${CARDS_TARGET}-readelf"
 export STRIP="${CARDS_TARGET}-strip"
 
 # Create the filesystem hierarchy
-mkdir -pv ${CARDS}
-mkdir -pv ${CARDS}/{bin,boot{,grub},dev,{etc/,}opt,home,lib/{firmware,modules},lib64,mnt}
-mkdir -pv ${CARDS}/{proc,media/{floppy,cdrom},sbin,srv,sys}
-mkdir -pv ${CARDS}/var/{lock,log,mail,run,spool}
-mkdir -pv ${CARDS}/var/{opt,cache,lib/{misc,locate},local}
-install -dv -m 0750 ${CARDS}/root
-install -dv -m 1777 ${CARDS}{/var,}/tmp
-install -dv ${CARDS}/etc/init.d
-mkdir -pv ${CARDS}/usr/{,local/}{bin,include,lib{,64},sbin,src}
-mkdir -pv ${CARDS}/usr/{,local/}share/{doc,info,locale,man}
-mkdir -pv ${CARDS}/usr/{,local/}share/{misc,terminfo,zoneinfo}
-mkdir -pv ${CARDS}/usr/{,local/}share/man/man{1,2,3,4,5,6,7,8}
+mkdir -p ${CARDS}
+mkdir -p ${CARDS}/{bin,boot{,grub},dev,{etc/,}opt,home,lib/{firmware,modules},lib64,mnt}
+mkdir -p ${CARDS}/{proc,media/{floppy,cdrom},sbin,srv,sys}
+mkdir -p ${CARDS}/var/{lock,log,mail,run,spool}
+mkdir -p ${CARDS}/var/{opt,cache,lib/{misc,locate},local}
+install -d -m 0750 ${CARDS}/root
+install -d -m 1777 ${CARDS}{/var,}/tmp
+install -d ${CARDS}/etc/init.d
+mkdir -p ${CARDS}/usr/{,local/}{bin,include,lib{,64},sbin,src}
+mkdir -p ${CARDS}/usr/{,local/}share/{doc,info,locale,man}
+mkdir -p ${CARDS}/usr/{,local/}share/{misc,terminfo,zoneinfo}
+mkdir -p ${CARDS}/usr/{,local/}share/man/man{1,2,3,4,5,6,7,8}
 for dir in ${CARDS}/usr{,/local}; do
-    ln -sv share/{man,doc,info} ${dir}
+    ln -s share/{man,doc,info} ${dir}
 done
 
-install -dv ${CARDS}/cross-tools{,/bin} # Create directory for cross-compilation toolchain
-ln -svf ../proc/mounts ${CARDS}/etc/mtab # Maintain list of mounted filesystems
+install -d ${CARDS}/cross-tools{,/bin} # Create directory for cross-compilation toolchain
+ln -sf ../proc/mounts ${CARDS}/etc/mtab # Maintain list of mounted filesystems
 
 # Create root user account
 cat > ${CARDS}/etc/passwd << "EOF"
@@ -198,7 +198,7 @@ EOF
 
 # Create log files
 touch ${CARDS}/var/run/utmp ${CARDS}/var/log/{btmp,lastlog,wtmp}
-chmod -v 664 ${CARDS}/var/run/utmp ${CARDS}/var/log/lastlog
+chmod 664 ${CARDS}/var/run/utmp ${CARDS}/var/log/lastlog
 
 # TODO: Download kernel, uncompress tarball, change directory into it
 wget https://git.kernel.org/torvalds/t/linux-${LINUX_VERSION}.tar.gz
@@ -208,7 +208,7 @@ cd linux-${LINUX_VERSION}
 make mrproper
 make ARCH=${CARDS_ARCH} headers_check && \
 make ARCH=${CARDS_ARCH} INSTALL_HDR_PATH=dest headers_install
-cp -rv dest/include/* ${CARDS}/usr/include
+cp -r dest/include/* ${CARDS}/usr/include
 cd ../
 
 # TODO: Download Binutils, uncompress tarball
@@ -221,7 +221,7 @@ cd binutils-build/
 --target=${CARDS_TARGET} --with-sysroot=${CARDS} \
 --disable-nls --enable-shared --disable-multilib
 make configure-host && make
-ln -sv lib ${CARDS}/cross-tools/lib64
+ln -s lib ${CARDS}/cross-tools/lib64
 make install
 cp ../binutils-${BINUTILS_VERSION}/include/libiberty.h ${CARDS}/usr/include
 cd ../
@@ -255,7 +255,7 @@ AR=ar LDFLAGS="-Wl,-rpath,${CARDS}/cross-tools/lib" \
 --disable-multilib --with-arch=${CARDS_CPU}
 make all-gcc all-target-libgcc && \
 make install-gcc install-target-libgcc
-ln -vs libgcc.a `${CARDS_TARGET}-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
+ln -s libgcc.a `${CARDS_TARGET}-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
 cd ../
 
 # TODO: Download glibc, uncompress tarball
@@ -339,7 +339,7 @@ wget http://ftp.osuosl.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-sc
 tar -xJf boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
 cd boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}
 make DESTDIR=${CARDS}/ install-bootscripts
-ln -sv ../rc.d/startup ${CARDS}/etc/init.d/rcS
+ln -s ../rc.d/startup ${CARDS}/etc/init.d/rcS
 cd ../
 
 # TODO: Download Pacman source tarball, uncompress tarball, change directory into it

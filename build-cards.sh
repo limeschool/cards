@@ -6,7 +6,7 @@ export PATH=${CARDS}/cross-tools/bin:/bin:/usr/bin
 unset CFLAGS
 unset CXXFLAGS
 export CARDS_HOST=$(echo ${MACHTYPE} | sed "s/-[^-]*/-cross/")
-export CARDS_TARGET=x86_64-linux-gnu-gcc
+export CARDS_TARGET=x86_64-linux-gnu
 export CARDS_CPU=k8
 export CARDS_ARCH=$(echo ${CARDS_TARGET} | sed -e 's/-.*//' -e 's/i.86/i386/')
 export CARDS_ENDIAN=little
@@ -257,8 +257,8 @@ ln -s libgcc.a `${CARDS_TARGET}-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh
 cd ../
 
 # TODO: Download glibc, uncompress tarball
-wget https://ftp.gnu.org/gnu/glibc/glibc-ports-${GLIBC_VERSION}.tar.gz -q > /dev/null
-tar -xf glibc-ports-${GLIBC_VERSION}.tar.gz
+wget https://ftp.gnu.org/gnu/glibc/glibc-${GLIBC_VERSION}.tar.gz -q > /dev/null
+tar -xf glibc-${GLIBC_VERSION}.tar.gz
 mkdir glibc-build
 cd glibc-build/
 echo "libc_cv_forced_unwind=yes" > config.cache

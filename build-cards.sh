@@ -6,7 +6,7 @@ export PATH=${CARDS}/cross-tools/bin:/bin:/usr/bin
 unset CFLAGS
 unset CXXFLAGS
 export CARDS_HOST=$(echo ${MACHTYPE} | sed "s/-[^-]*/-cross/")
-export CARDS_TARGET=x86_64-unknown-linux-gnu
+export CARDS_TARGET=x86_64-linux-gnu-gcc
 export CARDS_CPU=k8
 export CARDS_ARCH=$(echo ${CARDS_TARGET} | sed -e 's/-.*//' -e 's/i.86/i386/')
 export CARDS_ENDIAN=little

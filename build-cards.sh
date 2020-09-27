@@ -306,6 +306,7 @@ make CROSS_COMPILE="${CARDS_TARGET}-"
 make CROSS_COMPILE="${CARDS_TARGET}-" \
 CONFIG_PREFIX="${CARDS}" install
 cp examples/depmod.pl ${CARDS}/cross-tools/bin # Install Perl script that will be used to build kernel later
+cd ../
 
 # TODO: Change into Linux kernel directory
 cd linux-${LINUX_VERSION}

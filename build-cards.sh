@@ -354,14 +354,14 @@ cd ../
 cp -rf ${CARDS}/ ${CARDS}-copy # Create a copy of the original build
 
 # Remove unneeded directories
-rm -rfv ${CARDS}-copy/cross-tools
-rm -rfv ${CARDS}-copy/usr/src/*
+rm -rf ${CARDS}-copy/cross-tools
+rm -rf ${CARDS}-copy/usr/src/*
 
 # Remove unneeded statically compiled library files
 FILES="$(ls ${CARDS}-copy/usr/lib64/*.a)"
 for file in $FILES; do
-> rm -f $file
-> done
+    rm -f $file
+done
 
 # Remove debug symbols from binaries
 find ${CARDS}-copy/{,usr/}{bin,lib,sbin} -type f -exec sudo strip --strip-debug '{}' ';'

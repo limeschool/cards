@@ -25,9 +25,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl mkisofs libc6-dev -y > /dev/null
+          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl mkisofs libc6-dev libelf-dev -y > /dev/null
           
-          export LINUX_VERSION=5.9-rc6
+          export LINUX_VERSION=5.9-rc7
+          export LINUX_BUILD_VERSION=5.9.0-rc7
           export BINUTILS_VERSION=2.35
           export GCC_VERSION=10.2.0
           export GMP_VERSION=6.2.0

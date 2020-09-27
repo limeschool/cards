@@ -329,8 +329,8 @@ cp .config ${CARDS}/boot/config-${LINUX_VERSION}
 
 # Run BusyBox's Perl script
 ${CARDS}/cross-tools/bin/depmod.pl \
--F ${CARDS}/boot/System.map-${LINUX_VERSION} \
--b ${CARDS}/lib/modules/${LINUX_VERSION}
+-F ${CARDS}/boot/System.map-${LINUX_BUILD_VERSION} \
+-b ${CARDS}/lib/modules/${LINUX_BUILD_VERSION}
 cd ../
 
 # TODO: Download Cross-LFS bootscripts, uncompress tarball, change directory into it

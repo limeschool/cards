@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set +h
+set -h
 umask 022
 export CARDS=~/cards
 export LC_ALL=POSIX

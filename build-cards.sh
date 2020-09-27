@@ -199,7 +199,7 @@ touch ${CARDS}/var/run/utmp ${CARDS}/var/log/{btmp,lastlog,wtmp}
 chmod 664 ${CARDS}/var/run/utmp ${CARDS}/var/log/lastlog
 
 # TODO: Download kernel, uncompress tarball, change directory into it
-wget https://git.kernel.org/torvalds/t/linux-${LINUX_VERSION}.tar.gz > /dev/null
+wget https://git.kernel.org/torvalds/t/linux-${LINUX_VERSION}.tar.gz -q > /dev/null
 tar -xf linux-${LINUX_VERSION}.tar.gz
 cd linux-${LINUX_VERSION}
 # Install kernel's standard header files
@@ -210,7 +210,7 @@ cp -r dest/include/* ${CARDS}/usr/include
 cd ../
 
 # TODO: Download Binutils, uncompress tarball
-wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VERSION}.tar.gz > /dev/null
+wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VERSION}.tar.gz -q > /dev/null
 tar -xf binutils-${BINUTILS_VERSION}.tar.gz
 # Binutils is needed to handle compiled object files
 mkdir binutils-build
@@ -225,10 +225,10 @@ cp ../binutils-${BINUTILS_VERSION}/include/libiberty.h ${CARDS}/usr/include
 cd ../
 
 # TODO: Download GCC, uncompress tarball
-wget https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz > /dev/null
-wget https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.bz2 > /dev/null
-wget https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.xz > /dev/null
-wget https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VERSION}.tar.gz > /dev/null
+wget https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz -q > /dev/null
+wget https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION}.tar.bz2 -q > /dev/null
+wget https://ftp.gnu.org/gnu/mpfr/mpfr-${MPFR_VERSION}.tar.xz -q > /dev/null
+wget https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VERSION}.tar.gz -q > /dev/null
 tar xf gcc-${GCC_VERSION}.tar.gz
 # Building a statically compiled toolchain to later build glibc, which will later link to GCC cross compiler
 tar xjf gmp-${GMP_VERSION}.tar.bz2
@@ -257,7 +257,7 @@ ln -s libgcc.a `${CARDS_TARGET}-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh
 cd ../
 
 # TODO: Download glibc, uncompress tarball
-wget https://ftp.gnu.org/gnu/glibc/glibc-ports-${GLIBC_VERSION}.tar.gz > /dev/null
+wget https://ftp.gnu.org/gnu/glibc/glibc-ports-${GLIBC_VERSION}.tar.gz -q > /dev/null
 tar -xf glibc-ports-${GLIBC_VERSION}.tar.gz
 mkdir glibc-build
 cd glibc-build/
@@ -297,7 +297,7 @@ cd ../
 
 
 # TODO: Download BusyBox, uncompress tarball, change directory into it
-wget https://www.busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2 > /dev/null
+wget https://www.busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2 -q > /dev/null
 tar -xjf busybox-${BUSYBOX_VERSION}.tar.bz2
 cd busybox-${BUSYBOX_VERSION}
 # BusyBox coreutils
@@ -333,7 +333,7 @@ ${CARDS}/cross-tools/bin/depmod.pl \
 cd ../
 
 # TODO: Download Cross-LFS bootscripts, uncompress tarball, change directory into it
-wget http://ftp.osuosl.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz > /dev/null
+wget http://ftp.osuosl.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz -q > /dev/null
 tar -xJf boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
 cd boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}
 make DESTDIR=${CARDS}/ install-bootscripts
@@ -341,7 +341,7 @@ ln -s ../rc.d/startup ${CARDS}/etc/init.d/rcS
 cd ../
 
 # TODO: Download Pacman source tarball, uncompress tarball, change directory into it
-wget https://sources.archlinux.org/other/pacman/pacman-${PACMAN_VERSION}.tar.gz > /dev/null
+wget https://sources.archlinux.org/other/pacman/pacman-${PACMAN_VERSION}.tar.gz -q > /dev/null
 tar -xf pacman-${PACMAN_VERSION}.tar.gz
 cd pacman-${PACMAN_VERSION}
 ./configure

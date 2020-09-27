@@ -202,7 +202,7 @@ chmod -v 664 ${CARDS}/var/run/utmp ${CARDS}/var/log/lastlog
 
 # TODO: Download kernel, uncompress tarball, change directory into it
 wget https://git.kernel.org/torvalds/t/linux-${LINUX_VERSION}.tar.gz
-tar -xvf linux-${LINUX_VERSION}.tar.gz
+tar -xf linux-${LINUX_VERSION}.tar.gz
 cd linux-${LINUX_VERSION}
 # Install kernel's standard header files
 make mrproper
@@ -213,7 +213,7 @@ cd ../
 
 # TODO: Download Binutils, uncompress tarball
 wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VERSION}.tar.gz
-tar -xvf binutils-${BINUTILS_VERSION}.tar.gz
+tar -xf binutils-${BINUTILS_VERSION}.tar.gz
 # Binutils is needed to handle compiled object files
 mkdir binutils-build
 cd binutils-build/
@@ -260,7 +260,7 @@ cd ../
 
 # TODO: Download glibc, uncompress tarball
 wget https://ftp.gnu.org/gnu/glibc/glibc-ports-${GLIBC_VERSION}.tar.gz
-tar -xvf glibc-ports-${GLIBC_VERSION}.tar.gz
+tar -xf glibc-ports-${GLIBC_VERSION}.tar.gz
 mkdir glibc-build
 cd glibc-build/
 echo "libc_cv_forced_unwind=yes" > config.cache
@@ -336,7 +336,7 @@ cd ../
 
 # TODO: Download Cross-LFS bootscripts, uncompress tarball, change directory into it
 wget http://ftp.osuosl.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
-tar -xJvf boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
+tar -xJf boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
 cd boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}
 make DESTDIR=${CARDS}/ install-bootscripts
 ln -sv ../rc.d/startup ${CARDS}/etc/init.d/rcS
@@ -344,7 +344,7 @@ cd ../
 
 # TODO: Download Pacman source tarball, uncompress tarball, change directory into it
 wget https://sources.archlinux.org/other/pacman/pacman-${PACMAN_VERSION}.tar.gz
-tar -xvf pacman-${PACMAN_VERSION}.tar.gz
+tar -xf pacman-${PACMAN_VERSION}.tar.gz
 cd pacman-${PACMAN_VERSION}
 ./configure
 make && make DESTDIR=${CARDS}/ install

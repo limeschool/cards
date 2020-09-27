@@ -38,7 +38,8 @@ jobs:
           export CLFS_BOOTSCRIPTS_VERSION=3.0-20140521
           export PACMAN_VERSION=5.2.2
           
-          sh build-cards.sh
+          chmod +x ./build-cards.sh
+          ./build-cards.sh
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.1.4

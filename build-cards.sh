@@ -390,7 +390,8 @@ sudo grub-install --root-directory=${CARDS}-copy/../loopfs /dev/loop0 # Install 
 
 # Create final disk image
 cd ${CARDS}-copy/
-sudo mkisofs -J -r -o cards.iso /dev/loop0 # Create .ISO file from loop device
+#sudo mkisofs -J -r -o cards.iso ../loopfs # Create .ISO file from loop device
+sudo dd if=/dev/loop0 of=${CARDS}-copy/cards.iso # Create .ISO file from loop device
 sudo umount /dev/loop0 # Unmount loopfs
 sudo rmdir ../loopfs # Delete loopfs
 sudo losetup -d /dev/loop0 # Disconnect loop device

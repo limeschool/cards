@@ -373,6 +373,25 @@ sudo mknod -m 0666 ${CARDS}-copy/dev/null c 1 3
 sudo mknod -m 0600 ${CARDS}-copy/dev/console c 5 1
 sudo chmod 4755 ${CARDS}-copy/bin/busybox
 
+# Tar the build
+cd ${CARDS}-copy/
+sudo tar cfJ ../cards.tar.xz *
+
+# Make the build bootable
+cd ../
+sudo dd if=/dev/zero of=loopbackfile.img bs=100M count=10 # Create loop file
+sudo losetup -fP loopbackfile.img # Create loop device
+sudo mkfs.ext4 -F ./loopbackfile.img # Create an ext4 filesystem
+sudo mkdir loopfs # Create ./loopfs directory
+sudo mount -o loop /dev/loop0 loopfs # Mount loop device to ./loopfs
+cd loopfs/
+sudo tar xJf ../cards.tar.xz # Uncompress build into loop device
+sudo grub-install --root-directory=${CARDS}-copy/../loopfs /dev/loop0 # Install GRUB into loop device
+
 # Create final disk image
 cd ${CARDS}-copy/
-sudo mkisofs -J -r -o cards.iso .
+sudo mkisofs -J -r -o cards.iso /dev/loop0 # Create .ISO file from loop device
+sudo umount loopfs # Unmount loopfs
+sudo rmdir loopfs # Delete loopfs
+sudo losetup -d /dev/loop0 # Disconnect loop device
+sudo rm ../loopbackfile.img # Delete loop file

@@ -31,7 +31,7 @@ jobs:
           chmod +x ./build-cards.sh
           ./build-cards.sh
 
-      - name: Upload a Build Artifact
+      - name: Upload disk image
         uses: actions/upload-artifact@v2.1.4
         with:
           name: cards

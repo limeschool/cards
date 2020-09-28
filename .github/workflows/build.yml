@@ -25,7 +25,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl mkisofs libc6-dev libelf-dev -y > /dev/null
+          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ archivemount -y > /dev/null
           
           export LINUX_VERSION=5.9-rc7
           export LINUX_BUILD_VERSION=5.9.0-rc7
@@ -47,4 +47,6 @@ jobs:
         with:
           # Artifact name
           # A file, directory or wildcard pattern that describes what to upload
+          name: cards
           path: ~/cards-copy/cards.iso
+          if-no-files-found: error

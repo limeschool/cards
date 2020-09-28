@@ -182,7 +182,7 @@ usbdev[0-9].[0-9]_.*    root:root 0660
 EOF
 
 # Create GRUB configuration
-cat > ${CARDS}/boot/grub/grub.cfg<< "EOF"
+cat <<'EOF' >> ${CARDS}/boot/grub/grub.cfg
 
 set default=0
 set timeout=5
@@ -329,7 +329,7 @@ cp .config ${CARDS}/boot/config-${LINUX_VERSION}
 
 # Run BusyBox's Perl script
 ${CARDS}/cross-tools/bin/depmod.pl \
--F ${CARDS}/boot/System.map-${LINUX_BUILD_VERSION} \
+-F ${CARDS}/boot/System.map-${LINUX_VERSION} \
 -b ${CARDS}/lib/modules/${LINUX_BUILD_VERSION}
 cd ../
 
@@ -391,7 +391,7 @@ sudo grub-install --root-directory=${CARDS}-copy/../loopfs /dev/loop0 # Install 
 # Create final disk image
 cd ${CARDS}-copy/
 sudo mkisofs -J -r -o cards.iso /dev/loop0 # Create .ISO file from loop device
-sudo umount loopfs # Unmount loopfs
-sudo rmdir loopfs # Delete loopfs
+sudo umount /dev/loop0 # Unmount loopfs
+sudo rmdir ../loopfs # Delete loopfs
 sudo losetup -d /dev/loop0 # Disconnect loop device
 sudo rm ../loopbackfile.img # Delete loop file

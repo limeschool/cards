@@ -380,7 +380,7 @@ sudo mkdir loopfs # Create ./loopfs directory
 sudo mount -o loop /dev/loop0 loopfs # Mount loop device to ./loopfs
 cd loopfs/
 sudo tar xJf ../cards.tar.xz # Uncompress build into loop device
-sudo grub-install --root-directory=${CARDS}-copy/../loopfs /dev/loop0 # Install GRUB into loop device
+sudo grub-install --target=x86_64-efi /dev/loop0 # Install GRUB into loop device
 
 # Create final disk image
 cd ${CARDS}-copy/

@@ -301,10 +301,9 @@ wget https://www.busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2 -q > /
 tar -xjf busybox-${BUSYBOX_VERSION}.tar.bz2
 cd busybox-${BUSYBOX_VERSION}
 # BusyBox coreutils
-make CROSS_COMPILE="${CARDS_TARGET}-" defconfig # Use default utilities and libraries
-make CROSS_COMPILE="${CARDS_TARGET}-"
-make CROSS_COMPILE="${CARDS_TARGET}-" \
-CONFIG_PREFIX="${CARDS}" install
+make defconfig # Use default utilities and libraries
+make
+make CONFIG_PREFIX="${CARDS}" install
 cp examples/depmod.pl ${CARDS}/cross-tools/bin # Install Perl script that will be used to build kernel later
 cd ../
 
@@ -342,10 +341,10 @@ ln -s ../rc.d/startup ${CARDS}/etc/init.d/rcS
 cd ../
 
 # Copy built packages
-cp -rfp ${PACKAGES}/ ${CARDS}
+cp -af ${PACKAGES}/build/. ${CARDS}
 
 # Create final build
-cp -rfp ${CARDS}/ ${CARDS}-copy # Create a copy of the original build
+cp -af ${CARDS}/ ${CARDS}-copy # Create a copy of the original build
 
 # Remove unneeded directories
 rm -rf ${CARDS}-copy/cross-tools

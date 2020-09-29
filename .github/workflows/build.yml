@@ -14,7 +14,9 @@ jobs:
 
       - name: Setup build environment, compile OS, bundle disk image
         run: |
-          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ archivemount -y > /dev/null
+          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev \
+          perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ \
+          archivemount gettext libtool libtool-bin-y > /dev/null
 
           export CARDS=~/cards
           export PACKAGES=~/packages
@@ -30,6 +32,8 @@ jobs:
           export CLFS_BOOTSCRIPTS_VERSION=3.0-20140710
           export PACMAN_VERSION=5.2.2
           export ZLIB_VERSION=1.2.11
+          export COREUTILS_VERSION=8.32
+          export UTIL_LINUX_VERSION=2.36
 
           chmod +x ./build-packages.sh
           chmod +x ./build-cards.sh

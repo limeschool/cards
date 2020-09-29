@@ -12,10 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup build environment, compile packages, bundle disk image
+      - name: Setup build environment, compile OS, bundle disk image
         run: |
           sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ archivemount -y > /dev/null
-          
+
+          export CARDS=~/cards
+          export PACKAGES=~/packages
           export LINUX_VERSION=5.9-rc7
           export LINUX_BUILD_VERSION=5.9.0-rc7
           export BINUTILS_VERSION=2.35
@@ -25,10 +27,13 @@ jobs:
           export MPC_VERSION=1.2.0
           export GLIBC_VERSION=2.32
           export BUSYBOX_VERSION=1.32.0
-          export CLFS_BOOTSCRIPTS_VERSION=3.0-20140521
+          export CLFS_BOOTSCRIPTS_VERSION=3.0-20140710
           export PACMAN_VERSION=5.2.2
-          
+          export ZLIB_VERSION=1.2.11
+
+          chmod +x ./build-packages.sh
           chmod +x ./build-cards.sh
+          ./build-packages.sh
           ./build-cards.sh
 
       - name: Upload disk image

@@ -1,6 +1,5 @@
 set +h
 umask 022
-export CARDS=~/cards
 export LC_ALL=POSIX
 export PATH=${CARDS}/cross-tools/bin:/bin:/usr/bin
 unset CFLAGS
@@ -36,6 +35,7 @@ mkdir -p ${CARDS}/usr/{,local/}share/man/man{1,2,3,4,5,6,7,8}
 for dir in ${CARDS}/usr{,/local}; do
     ln -s share/{man,doc,info} ${dir}
 done
+mkdir -p ${CARDS}/boot/grub
 
 install -d ${CARDS}/cross-tools{,/bin} # Create directory for cross-compilation toolchain
 ln -sf ../proc/mounts ${CARDS}/etc/mtab # Maintain list of mounted filesystems
@@ -333,24 +333,19 @@ ${CARDS}/cross-tools/bin/depmod.pl \
 -b ${CARDS}/lib/modules/${LINUX_BUILD_VERSION}
 cd ../
 
-# TODO: Download Cross-LFS bootscripts, uncompress tarball, change directory into it
-wget http://ftp.osuosl.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz -q > /dev/null
+# TODO: Download CLFS bootscripts, uncompress tarball, change directory into it
+wget http://ftp.clfs.org/pub/clfs/conglomeration/bootscripts-cross-lfs/boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz -q > /dev/null
 tar -xJf boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}.tar.xz
 cd boot-scripts-cross-lfs-${CLFS_BOOTSCRIPTS_VERSION}
-make DESTDIR=${CARDS}/ install-bootscripts
+make DESTDIR=${CARDS}/ install-boot-scripts
 ln -s ../rc.d/startup ${CARDS}/etc/init.d/rcS
 cd ../
 
-# TODO: Download Pacman source tarball, uncompress tarball, change directory into it
-wget https://sources.archlinux.org/other/pacman/pacman-${PACMAN_VERSION}.tar.gz -q > /dev/null
-tar -xf pacman-${PACMAN_VERSION}.tar.gz
-cd pacman-${PACMAN_VERSION}
-./configure
-make && make DESTDIR=${CARDS}/ install
-cd ../
+# Copy built packages
+cp -rfp ${PACKAGES}/ ${CARDS}
 
 # Create final build
-cp -rf ${CARDS}/ ${CARDS}-copy # Create a copy of the original build
+cp -rfp ${CARDS}/ ${CARDS}-copy # Create a copy of the original build
 
 # Remove unneeded directories
 rm -rf ${CARDS}-copy/cross-tools
@@ -392,7 +387,7 @@ sudo grub-install --root-directory=${CARDS}-copy/../loopfs /dev/loop0 # Install 
 cd ${CARDS}-copy/
 sudo mkisofs -J -r -o cards.iso ../loopfs # Create .ISO file from loop device
 #sudo dd if=/dev/loop0 of=${CARDS}-copy/cards.iso # Create .ISO file from loop device
-sudo umount /dev/loop0 # Unmount loopfs
+sudo umount ../loopfs # Unmount loopfs
 sudo rmdir ../loopfs # Delete loopfs
 sudo losetup -d /dev/loop0 # Disconnect loop device
 sudo rm ../loopbackfile.img # Delete loop file

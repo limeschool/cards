@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev \
           perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ \
-          archivemount gettext libtool libtool-bin-y > /dev/null
+          archivemount gettext libtool libtool-bin -y > /dev/null
 
           export CARDS=~/cards
           export PACKAGES=~/packages

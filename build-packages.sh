@@ -1,3 +1,4 @@
+mkdir -p ${PACKAGES}
 cd ${PACKAGES}
 
 # TODO: Download zlib source tarball, uncompress tarball, change directory into it

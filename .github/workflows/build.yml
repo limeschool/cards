@@ -9,25 +9,25 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    
+
     container:
       image: archlinux:latest
       volumes:
         - /proc:/proc
       options: --privileged
 
-      steps:
-      - name: Clone build scripts
-        uses: actions/checkout@v1
+    steps:
+    - name: Clone build scripts
+      uses: actions/checkout@v1
 
-      - name: Build and upload stable .iso
-        run: |
-          chmod +x ./build.sh
-          ./build.sh
+    - name: Build and upload stable .iso
+      run: |
+        chmod +x ./build.sh
+        ./build.sh
 
-      - name: Upload disk image
-        uses: actions/upload-artifact@v2.1.4
-        with:
-          name: cards
-          path: ~/cards.iso
-          if-no-files-found: error
+    - name: Upload disk image
+      uses: actions/upload-artifact@v2.1.4
+      with:
+        name: cards
+        path: ~/cards.iso
+        if-no-files-found: error

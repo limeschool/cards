@@ -3,7 +3,7 @@ export PROFILE=~/cards-profile
 set +h
 umask 0022 # Correct file permissions
 
-pacman -S archiso
+pacman -Syu archiso
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 echo "packages.x86_64:\n---"
 echo "$(<${PROFILE}/packages.x86_64)"

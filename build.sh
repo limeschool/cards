@@ -6,15 +6,17 @@ umask 0022 # Correct file permissions
 pacman -Syu archiso --noconfirm
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 
+sudo tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
+mesa
+xf86-video-amdgpu
+xf86-video-intel
+nvidia
+nvidia-utils
+pantheon
+EOT
+
 echo -e "packages.x86_64:\n---"
 echo "$(<${PROFILE}/packages.x86_64)"
-echo "---"
-echo -e "build.sh:\n---"
-echo "$(<${PROFILE}/build.sh)"
-echo "---"
-chmod +x ${PROFILE}/build.sh
-echo -e "Help:\n---"
-echo ${PROFILE}/build.sh -h
 echo "---"
 
 mkdir ./out

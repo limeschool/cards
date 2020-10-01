@@ -6,7 +6,7 @@ umask 0022 # Correct file permissions
 pacman -Syu archiso --noconfirm
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 
-sudo tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
+tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
 mesa
 xf86-video-amdgpu

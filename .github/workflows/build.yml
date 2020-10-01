@@ -20,7 +20,7 @@ jobs:
     - name: Clone build scripts
       uses: actions/checkout@v1
 
-    - name: Build and upload stable .iso
+    - name: Build & bundle disk image
       run: |
         chmod +x ./build.sh
         ./build.sh
@@ -30,4 +30,11 @@ jobs:
       with:
         name: cards
         path: ~/cards.iso
+        if-no-files-found: error
+
+    - name: Upload build profile
+      uses: actions/upload-artifact@v2.1.4
+      with:
+        name: profile
+        path: ~/cards-profile
         if-no-files-found: error

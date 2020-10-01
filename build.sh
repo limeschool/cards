@@ -9,6 +9,7 @@ cp -rf ./custom ${PROFILE}
 
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
+xorg-xinit
 mesa
 xf86-video-amdgpu
 xf86-video-intel
@@ -17,10 +18,12 @@ nvidia-utils
 gtk-engine-murrine
 gtkspell3
 lightdm-gtk-greeter
+qt5-svg
+qt5-wayland
+qt5-translations
 vala
 pantheon
 switchboard-plug-desktop
-switchboard-plug-elementary-tweaks
 switchboard-plug-locale
 switchboard-plug-security-privacy
 gnome-disk-utility

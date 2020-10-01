@@ -10,15 +10,16 @@ cp -rf ./custom/. ${PROFILE}
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
 xorg-xinit
+lightdm
 mesa
 gtk-engine-murrine
 gtkspell3
-lightdm-gtk-greeter
 qt5-svg
 qt5-wayland
 qt5-translations
 vala
 pantheon
+lightdm-pantheon-greeter
 switchboard-plug-desktop
 switchboard-plug-locale
 switchboard-plug-security-privacy

@@ -5,16 +5,12 @@ umask 0022 # Correct file permissions
 
 pacman -Syu archiso --noconfirm
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
-cp -rf ./custom ${PROFILE}
+cp -rf ./custom/. ${PROFILE}
 
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
 xorg-xinit
 mesa
-xf86-video-amdgpu
-xf86-video-intel
-nvidia
-nvidia-utils
 gtk-engine-murrine
 gtkspell3
 lightdm-gtk-greeter

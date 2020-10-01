@@ -9,11 +9,12 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-      container:
-        image: archlinux:latest
-        volumes:
-          - /proc:/proc
-        options: --privileged
+    
+    container:
+      image: archlinux:latest
+      volumes:
+        - /proc:/proc
+      options: --privileged
 
       steps:
       - name: Clone build scripts

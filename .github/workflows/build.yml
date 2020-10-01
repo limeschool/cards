@@ -9,40 +9,24 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      container:
+        image: archlinux:latest
+        volumes:
+          - /proc:/proc
+        options: --privileged
 
-      - name: Setup build environment, compile OS, bundle disk image
+      steps:
+      - name: Clone build scripts
+        uses: actions/checkout@v1
+
+      - name: Build and upload stable .iso
         run: |
-          sudo apt install build-essential gcc make libncurses5-dev libncursesw5-dev \
-          perl python3 mkisofs libc6-dev libelf-dev libarchive-dev gobjc++ \
-          archivemount gettext autopoint libtool libtool-bin grub-efi -y > /dev/null
-
-          export CARDS=~/cards
-          export PACKAGES=~/packages
-          export LINUX_VERSION=5.9-rc7
-          export LINUX_BUILD_VERSION=5.9.0-rc7
-          export BINUTILS_VERSION=2.35
-          export GCC_VERSION=10.2.0
-          export GMP_VERSION=6.2.0
-          export MPFR_VERSION=4.1.0
-          export MPC_VERSION=1.2.0
-          export GLIBC_VERSION=2.32
-          export BUSYBOX_VERSION=1.32.0
-          export CLFS_BOOTSCRIPTS_VERSION=3.0-20140710
-          export PACMAN_VERSION=5.2.2
-          export ZLIB_VERSION=1.2.11
-          export COREUTILS_VERSION=8.32
-          export UTIL_LINUX_VERSION=2.36
-
-          chmod +x ./build-packages.sh
-          chmod +x ./build-cards.sh
-          ./build-packages.sh
-          ./build-cards.sh
+          chmod +x ./build.sh
+          ./build.sh
 
       - name: Upload disk image
         uses: actions/upload-artifact@v2.1.4
         with:
           name: cards
-          path: ~/cards-copy/cards.iso
+          path: ~/cards.iso
           if-no-files-found: error

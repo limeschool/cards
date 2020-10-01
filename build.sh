@@ -14,7 +14,15 @@ xf86-video-amdgpu
 xf86-video-intel
 nvidia
 nvidia-utils
+gtk-engine-murrine
+gtkspell3
+lightdm-gtk-greeter
+vala
 pantheon
+switchboard-plug-desktop
+switchboard-plug-elementary-tweaks
+switchboard-plug-locale
+switchboard-plug-security-privacy
 gnome-disk-utility
 EOT
 

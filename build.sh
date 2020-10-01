@@ -5,6 +5,7 @@ umask 0022 # Correct file permissions
 
 pacman -Syu archiso --noconfirm
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
+cp -rf ./custom ${PROFILE}
 
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
@@ -14,6 +15,7 @@ xf86-video-intel
 nvidia
 nvidia-utils
 pantheon
+gnome-disk-utility
 EOT
 
 echo -e "packages.x86_64:\n---"

@@ -5,7 +5,7 @@ export LOCAL_REPO=${HOME}/local-repo
 set +h
 umask 0022 # Correct file permissions
 
-pacman -Syu archiso git base-devel jq expac diffstat pacutils wget --noconfirm --noprogressbar # Install packages we'll need to build
+pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -31,9 +31,6 @@ tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
 [custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
-
-[extra-alucryd]
-Server = https://pkgbuild.com/~alucryd/$repo/$arch
 EOT
 
 # Add packages to our local repository (shared between host and profile)
@@ -42,13 +39,9 @@ tee -a /etc/pacman.conf > /dev/null <<EOT
 [custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
-
-[extra-alucryd]
-Server = https://pkgbuild.com/~alucryd/$repo/$arch
 EOT
 
 # 2. Add our packages from the AUR
-chmod -R 777 ${LOCAL_REPO}
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c ttf-raleway --no-confirm"
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c gnome-settings-daemon-elementary --no-confirm"
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c elementary-wallpapers-git --no-confirm"

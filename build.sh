@@ -11,7 +11,7 @@ pacman -Syu archiso git base-devel --noconfirm # Install packages we'll need to 
 # Install aurutils to build our local repository from AUR packages
 git clone https://aur.archlinux.org/aurutils.git
 cd aurutils
-makepkg -si
+su nobody -c "makepkg -si" # Make aurutils as a regular user
 
 # Begin setting up our profile
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
@@ -20,7 +20,7 @@ mkdir ${LOCAL_REPO}
 
 # Add repositories to our profile
 tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
-[cards]
+[custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 
@@ -31,7 +31,7 @@ EOT
 # Add packages to our local repository (shared between host and profile)
 # 1. Add repositories to our host
 tee -a /etc/pacman.conf > /dev/null <<EOT
-[cards]
+[custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 
@@ -171,5 +171,4 @@ ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/syst
 mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
-rm -rf /tmp/archiso-tmp
 mv ./out/cards-*.*.*-x86_64.iso ~

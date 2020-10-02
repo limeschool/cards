@@ -29,7 +29,7 @@ jobs:
       uses: actions/upload-artifact@v2.1.4
       with:
         name: cards
-        path: ~/cards.iso
+        path: ~/out/cards-*-x86_64.iso
         if-no-files-found: error
 
     - name: Upload build profile

@@ -5,11 +5,14 @@ umask 0022 # Correct file permissions
 
 pacman -Syu archiso --noconfirm
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
-cp -rf ./custom/. ${PROFILE}
+cp -rf ./cards/. ${PROFILE}
 
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 xorg
+xorg-drivers
+xorg-server
 xorg-xinit
+xf86-input-libinput
 lightdm
 mesa
 gtk-engine-murrine
@@ -30,8 +33,9 @@ echo -e "packages.x86_64:\n---"
 echo "$(<${PROFILE}/packages.x86_64)"
 echo "---"
 
+ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+
 mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
 rm -rf /tmp/archiso-tmp
-mv ./out/archlinux-*-x86_64.iso ~/cards.iso

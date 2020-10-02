@@ -4,7 +4,6 @@ export PROFILE=${HOME}/cards-profile
 export LOCAL_REPO=${HOME}/local-repo
 set +h
 umask 0022 # Correct file permissions
-cd ${HOME}
 
 pacman -Syu archiso git base-devel jq expac diffstat pacutils wget --noconfirm --noprogressbar # Install packages we'll need to build
 
@@ -47,16 +46,16 @@ Server = https://pkgbuild.com/~alucryd/$repo/$arch
 EOT
 
 # 2. Add our packages from the AUR
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c ttf-raleway --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c gnome-settings-daemon-elementary --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c elementary-wallpapers-git --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c pantheon-default-settings --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c pantheon-session-git --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c switchboard-plug-elementary-tweaks-git --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c pantheon-screencast --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c pantheon-system-monitor-git --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c pantheon-mail-git --no-confirm"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} -c elementary-planner-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c ttf-raleway --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c gnome-settings-daemon-elementary --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c elementary-wallpapers-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-default-settings --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-session-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c switchboard-plug-elementary-tweaks-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-screencast --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-system-monitor-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-mail-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c elementary-planner-git --no-confirm"
 
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT

@@ -23,7 +23,8 @@ cd ../
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
-chmod 777 ${LOCAL_REPO}
+repo-add ${LOCAL_REPO}/custom.db.tar.xz
+chmod -R 777 ${LOCAL_REPO}
 
 # Add repositories to our profile
 tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
@@ -47,6 +48,7 @@ Server = https://pkgbuild.com/~alucryd/$repo/$arch
 EOT
 
 # 2. Add our packages from the AUR
+chmod -R 777 ${LOCAL_REPO}
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c ttf-raleway --no-confirm"
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c gnome-settings-daemon-elementary --no-confirm"
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c elementary-wallpapers-git --no-confirm"

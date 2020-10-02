@@ -39,3 +39,4 @@ mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
 rm -rf /tmp/archiso-tmp
+mv ./out/cards-*.*.*-x86_64.iso ~

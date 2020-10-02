@@ -145,19 +145,6 @@ wingpanel-indicator-session
 
 ## VirtualBox
 virtualbox-guest-utils
-virtualbox-guest-modules-arch
-
-## AUR
-ttf-raleway
-gnome-settings-daemon-elementary
-elementary-wallpapers-git
-pantheon-default-settings
-pantheon-session-git
-switchboard-plug-elementary-tweaks-git
-pantheon-screencast
-pantheon-system-monitor-git
-pantheon-mail-git
-elementary-planner-git
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

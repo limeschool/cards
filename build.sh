@@ -8,6 +8,11 @@ cd ${HOME}
 
 pacman -Syu archiso git base-devel --noconfirm # Install packages we'll need to build
 
+# Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
+tee -a /etc/sudoers > /dev/null <<EOT
+nobody    ALL=(ALL) NOPASSWD:ALL
+EOT
+
 # Install aurutils to build our local repository from AUR packages
 git clone https://aur.archlinux.org/aurutils.git
 chmod 777 aurutils
@@ -42,16 +47,16 @@ Server = https://pkgbuild.com/~alucryd/$repo/$arch
 EOT
 
 # 2. Add our packages from the AUR
-aur sync -C ttf-raleway
-aur sync -C gnome-settings-daemon-elementary
-aur sync -C elementary-wallpapers-git
-aur sync -C pantheon-default-settings
-aur sync -C pantheon-session-git
-aur sync -C switchboard-plug-elementary-tweaks-git
-aur sync -C pantheon-screencast
-aur sync -C pantheon-system-monitor-git
-aur sync -C pantheon-mail-git
-aur sync -C elementary-planner-git
+su -s /bin/sh nobody -c "aur sync -C ttf-raleway"
+su -s /bin/sh nobody -c "aur sync -C gnome-settings-daemon-elementary"
+su -s /bin/sh nobody -c "aur sync -C elementary-wallpapers-git"
+su -s /bin/sh nobody -c "aur sync -C pantheon-default-settings"
+su -s /bin/sh nobody -c "aur sync -C pantheon-session-git"
+su -s /bin/sh nobody -c "aur sync -C switchboard-plug-elementary-tweaks-git"
+su -s /bin/sh nobody -c "aur sync -C pantheon-screencast"
+su -s /bin/sh nobody -c "aur sync -C pantheon-system-monitor-git"
+su -s /bin/sh nobody -c "aur sync -C pantheon-mail-git"
+su -s /bin/sh nobody -c "aur sync -C elementary-planner-git"
 
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT

@@ -13,6 +13,7 @@ xorg-drivers
 xorg-server
 xorg-xinit
 xf86-input-libinput
+xterm
 lightdm
 mesa
 gtk-engine-murrine
@@ -27,13 +28,15 @@ switchboard-plug-desktop
 switchboard-plug-locale
 switchboard-plug-security-privacy
 gnome-disk-utility
+virtualbox-guest-utils
 EOT
 
 echo -e "packages.x86_64:\n---"
 echo "$(<${PROFILE}/packages.x86_64)"
 echo "---"
 
-#ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf
+ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 
 mkdir ./out
 mkdir /tmp/archiso-tmp

@@ -4,13 +4,16 @@ export PROFILE=${HOME}/cards-profile
 export LOCAL_REPO=${HOME}/local-repo
 set +h
 umask 0022 # Correct file permissions
+cd ${HOME}
 
 pacman -Syu archiso git base-devel --noconfirm # Install packages we'll need to build
 
 # Install aurutils to build our local repository from AUR packages
 git clone https://aur.archlinux.org/aurutils.git
+chmod 777 aurutils
 cd aurutils
 su -s /bin/sh nobody -c "makepkg -si" # Make aurutils as a regular user
+cd ../
 
 # Begin setting up our profile
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}

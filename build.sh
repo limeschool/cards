@@ -23,6 +23,7 @@ cd ../
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
+chmod 777 ${LOCAL_REPO}
 
 # Add repositories to our profile
 tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT

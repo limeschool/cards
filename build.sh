@@ -10,7 +10,7 @@ pacman -Syu archiso git base-devel --noconfirm # Install packages we'll need to 
 # Install aurutils to build our local repository from AUR packages
 git clone https://aur.archlinux.org/aurutils.git
 cd aurutils
-su /bin/sh nobody -c "makepkg -si" # Make aurutils as a regular user
+su -s /bin/sh nobody -c "makepkg -si" # Make aurutils as a regular user
 
 # Begin setting up our profile
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}

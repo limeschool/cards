@@ -33,7 +33,7 @@ echo -e "packages.x86_64:\n---"
 echo "$(<${PROFILE}/packages.x86_64)"
 echo "---"
 
-ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+#ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 
 mkdir ./out
 mkdir /tmp/archiso-tmp

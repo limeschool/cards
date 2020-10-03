@@ -6,7 +6,7 @@ set +h
 umask 0022 # Correct file permissions
 systemd-machine-id-setup # Prevents errors when building AUR packages
 
-pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt gnome-doc-utils --noconfirm --noprogressbar # Install packages we'll need to build
+pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -56,7 +56,7 @@ pacman -Rd --nodeps granite # We need 'granite-git' (AUR) instead of 'granite' (
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
+gnome-doc-utils gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
 switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
@@ -159,6 +159,7 @@ virtualbox-guest-utils
 
 ## AUR
 ttf-raleway
+gnome-doc-utils
 gnome-settings-daemon-elementary
 elementary-wallpapers-git
 pantheon-default-settings

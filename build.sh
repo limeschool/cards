@@ -44,8 +44,9 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-gnome-doc-utils libhandy1 gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
-switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git elementary-planner-git"
+gnome-doc-utils libhandy1 gsettings-desktop-schemas-ubuntu gnome-settings-daemon-elementary \
+pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
+pantheon-system-monitor-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

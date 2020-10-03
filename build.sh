@@ -5,7 +5,7 @@ export LOCAL_REPO=${HOME}/local-repo
 set +h
 umask 0022 # Correct file permissions
 
-pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools --noconfirm --noprogressbar # Install packages we'll need to build
+pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools curl --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -20,10 +20,12 @@ su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutil
 cd ../
 
 # Install aurto to build our local repository from AUR packages
+mkdir /.cargo
+chmod -R 777 /.cargo
 git clone https://aur.archlinux.org/aurto.git
 chmod 777 aurto
 cd aurto
-su -s /bin/sh nobody -c "makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
+su -s /bin/sh nobody -c "sudo makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
 cd ../
 
 rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages
@@ -32,7 +34,7 @@ rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
-repo-add ${LOCAL_REPO}/custom.db.tar.xz
+#repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
 
 # Add repositories to our profile

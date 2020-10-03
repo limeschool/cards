@@ -33,6 +33,7 @@ sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
 #pacman -Rdd granite # We need 'granite-git' (AUR) instead of 'granite' (Community)
+pacman -Rdd gsettings-desktop-schemas
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview gnome-settings-daemon-elementary"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git"
@@ -46,7 +47,7 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
 gnome-doc-utils libhandy1 gsettings-desktop-schemas-ubuntu gnome-settings-daemon-elementary \
 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
-pantheon-system-monitor-git"
+pantheon-system-monitor-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -149,7 +150,7 @@ virtualbox-guest-utils
 ## AUR
 ttf-raleway
 gnome-settings-daemon-elementary
-elementary-wallpapers-git
+#elementary-wallpapers-git
 pantheon-default-settings
 pantheon-session-git
 switchboard-plug-elementary-tweaks-git

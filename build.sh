@@ -44,7 +44,7 @@ EOT
 
 # 2. Add our packages from the AUR
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
-pacman -Rd --nodeps granite # We need 'granite-git' (AUR) instead of 'granite' (Community)
+pacman -Rdd granite --no-confirm # We need 'granite-git' (AUR) instead of 'granite' (Community)
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview gnome-settings-daemon-elementary"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git"
@@ -55,7 +55,7 @@ pacman -Rd --nodeps granite # We need 'granite-git' (AUR) instead of 'granite' (
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "yes | aur sync -d custom --root ${LOCAL_REPO} --noview ttf-raleway \
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
 gnome-doc-utils gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
 switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
 

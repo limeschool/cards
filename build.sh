@@ -12,12 +12,21 @@ tee -a /etc/sudoers > /dev/null <<EOT
 nobody    ALL=(ALL) NOPASSWD:ALL
 EOT
 
-# Install aurutils to build our local repository from AUR packages
+# Install aurutils for aurto
 git clone https://aur.archlinux.org/aurutils.git
 chmod 777 aurutils
 cd aurutils
 su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutils as a regular user
 cd ../
+
+# Install aurto to build our local repository from AUR packages
+git clone https://aur.archlinux.org/aurto.git
+chmod 777 aurto
+cd aurto
+su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutils as a regular user
+cd ../
+
+rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages
 
 # Begin setting up our profile
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
@@ -28,7 +37,7 @@ chmod -R 777 ${LOCAL_REPO}
 
 # Add repositories to our profile
 tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
-[custom]
+[aurto]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 EOT
@@ -36,7 +45,7 @@ EOT
 # Add packages to our local repository (shared between host and profile)
 # 1. Add repositories to our host
 tee -a /etc/pacman.conf > /dev/null <<EOT
-[custom]
+[aurto]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 EOT
@@ -52,9 +61,16 @@ EOT
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
-switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
+su -s /bin/sh nobody -c "aurto add ttf-raleway"
+su -s /bin/sh nobody -c "aurto add gnome-settings-daemon-elementary"
+su -s /bin/sh nobody -c "aurto add elementary-wallpapers-git"
+su -s /bin/sh nobody -c "aurto add pantheon-default-settings"
+su -s /bin/sh nobody -c "aurto add pantheon-session-git"
+su -s /bin/sh nobody -c "aurto add switchboard-plug-elementary-tweaks-git"
+su -s /bin/sh nobody -c "aurto add pantheon-screencast"
+su -s /bin/sh nobody -c "aurto add pantheon-system-monitor-git"
+su -s /bin/sh nobody -c "aurto add pantheon-mail-git"
+su -s /bin/sh nobody -c "aurto add elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

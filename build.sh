@@ -1,7 +1,7 @@
 #!/bin/bash
 export HOME=~
 export PROFILE=${HOME}/cards-profile
-export LOCAL_REPO=${HOME}/local-repo
+export LOCAL_REPO=/var/cache/pacman/aurto
 set +h
 umask 0022 # Correct file permissions
 
@@ -63,16 +63,16 @@ EOT
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "aurto add ttf-raleway"
-su -s /bin/sh nobody -c "aurto add gnome-settings-daemon-elementary"
-su -s /bin/sh nobody -c "aurto add elementary-wallpapers-git"
-su -s /bin/sh nobody -c "aurto add pantheon-default-settings"
-su -s /bin/sh nobody -c "aurto add pantheon-session-git"
-su -s /bin/sh nobody -c "aurto add switchboard-plug-elementary-tweaks-git"
-su -s /bin/sh nobody -c "aurto add pantheon-screencast"
-su -s /bin/sh nobody -c "aurto add pantheon-system-monitor-git"
-su -s /bin/sh nobody -c "aurto add pantheon-mail-git"
-su -s /bin/sh nobody -c "aurto add elementary-planner-git"
+su -s /bin/sh nobody -c "sudo aurto add ttf-raleway"
+su -s /bin/sh nobody -c "sudo aurto add gnome-settings-daemon-elementary"
+su -s /bin/sh nobody -c "sudo aurto add elementary-wallpapers-git"
+su -s /bin/sh nobody -c "sudo aurto add pantheon-default-settings"
+su -s /bin/sh nobody -c "sudo aurto add pantheon-session-git"
+su -s /bin/sh nobody -c "sudo aurto add switchboard-plug-elementary-tweaks-git"
+su -s /bin/sh nobody -c "sudo aurto add pantheon-screencast"
+su -s /bin/sh nobody -c "sudo aurto add pantheon-system-monitor-git"
+su -s /bin/sh nobody -c "sudo aurto add pantheon-mail-git"
+su -s /bin/sh nobody -c "sudo aurto add elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

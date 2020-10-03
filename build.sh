@@ -56,8 +56,10 @@ pacman -Rdd granite --no-confirm # We need 'granite-git' (AUR) instead of 'grani
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-gnome-doc-utils gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
-switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
+granite-git gnome-doc-utils pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git"
+pacman -Rdd granite --no-confirm # satisfies libgranite.so, but we need 'granite-git' instead
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview granite-git \
+gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-mail-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -159,16 +161,15 @@ virtualbox-guest-utils
 
 ## AUR
 ttf-raleway
-gnome-doc-utils
-gnome-settings-daemon-elementary
-elementary-wallpapers-git
-pantheon-default-settings
+#gnome-settings-daemon-elementary
+#elementary-wallpapers-git
+#pantheon-default-settings
 pantheon-session-git
 switchboard-plug-elementary-tweaks-git
 pantheon-screencast
 pantheon-system-monitor-git
-pantheon-mail-git
-elementary-planner-git
+#pantheon-mail-git
+#elementary-planner-git
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

@@ -6,7 +6,7 @@ set +h
 umask 0022 # Correct file permissions
 systemd-machine-id-setup # Prevents errors when building AUR packages
 
-pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt --noconfirm --noprogressbar # Install packages we'll need to build
+pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt gnome-doc-utils --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -44,6 +44,7 @@ EOT
 
 # 2. Add our packages from the AUR
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
+pacman -Rd --nodeps granite # We need 'granite-git' (AUR) instead of 'granite' (Community)
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview gnome-settings-daemon-elementary"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git"
@@ -54,7 +55,6 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-#AUR_ASROOT = true # We have to do this as sudo, or else it just doesn't work
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
 gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
 switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
@@ -156,6 +156,18 @@ wingpanel-indicator-session
 
 ## VirtualBox
 virtualbox-guest-utils
+
+## AUR
+ttf-raleway
+gnome-settings-daemon-elementary
+elementary-wallpapers-git
+pantheon-default-settings
+pantheon-session-git
+switchboard-plug-elementary-tweaks-git
+pantheon-screencast
+pantheon-system-monitor-git
+pantheon-mail-git
+elementary-planner-git
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

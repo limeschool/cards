@@ -38,3 +38,10 @@ jobs:
         name: profile
         path: ~/cards-profile
         if-no-files-found: error
+
+    - name: Upload local repository
+      uses: actions/upload-artifact@v2.1.4
+      with:
+        name: local_repo
+        path: ~/local_repo
+        if-no-files-found: error

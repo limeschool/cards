@@ -22,10 +22,10 @@ cd ../
 # Install aurto to build our local repository from AUR packages
 mkdir /.cargo
 chmod -R 777 /.cargo
-git clone https://aur.archlinux.org/aurto.git
+curl -L https://aur.archlinux.org/cgit/aur.git/snapshot/aurto.tar.gz | tar xz
 chmod 777 aurto
 cd aurto
-su -s /bin/sh nobody -c "sudo makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
+su -s /bin/sh nobody -c "makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
 cd ../
 
 rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages

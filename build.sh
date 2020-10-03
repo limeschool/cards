@@ -23,7 +23,7 @@ cd ../
 git clone https://aur.archlinux.org/aurto.git
 chmod 777 aurto
 cd aurto
-su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutils as a regular user
+su -s /bin/sh nobody -c "makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
 cd ../
 
 rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages

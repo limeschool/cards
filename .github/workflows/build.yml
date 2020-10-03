@@ -14,6 +14,7 @@ jobs:
       image: archlinux:latest
       volumes:
         - /proc:/proc
+        - /sys/fs/cgroup/systemd/actions_job:/sys/fs/cgroup/systemd/actions_job
       options: --privileged
 
     steps:

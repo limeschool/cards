@@ -4,6 +4,7 @@ export PROFILE=${HOME}/cards-profile
 export LOCAL_REPO=/var/cache/pacman/aurto
 set +h
 umask 0022 # Correct file permissions
+systemd-machine-id-setup # Prevents errors when building AUR packages
 
 pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools curl --noconfirm --noprogressbar # Install packages we'll need to build
 
@@ -191,4 +192,5 @@ ln -s /usr/lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/
 mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
+rm -rf /tmp/archiso-tmp
 mv ./out/cards-*.*.*-x86_64.iso ~

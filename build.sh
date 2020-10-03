@@ -53,6 +53,10 @@ su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheo
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c pantheon-mail-git --no-confirm"
 su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} -c elementary-planner-git --no-confirm"
 
+echo -e "LOCAL_REPO:\n---"
+ls ${LOCAL_REPO}
+echo "---"
+
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
 ## X11 and drivers
@@ -108,6 +112,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 light-locker
+lightdm-gtk-greeter
 lightdm-pantheon-greeter
 pantheon
 pantheon-applications-menu
@@ -150,11 +155,11 @@ EOT
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 
 # Enable our daemons
-#ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
-ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
-ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
-ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
-ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+ln -s /usr/lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+ln -s /usr/lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
+ln -s /usr/lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /usr/lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /usr/lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 
 # Build & bundle the disk image
 mkdir ./out

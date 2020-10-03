@@ -42,16 +42,16 @@ Server = file://${LOCAL_REPO}
 EOT
 
 # 2. Add our packages from the AUR
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c ttf-raleway --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c gnome-settings-daemon-elementary --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c elementary-wallpapers-git --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c pantheon-default-settings --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c pantheon-session-git --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c switchboard-plug-elementary-tweaks-git --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c pantheon-screencast --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c pantheon-system-monitor-git --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c pantheon-mail-git --no-confirm"
-su -s /bin/sh nobody -c "sudo aur sync -d custom -c elementary-planner-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c ttf-raleway --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c gnome-settings-daemon-elementary --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c elementary-wallpapers-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c pantheon-default-settings --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c pantheon-session-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c switchboard-plug-elementary-tweaks-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c pantheon-screencast --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c pantheon-system-monitor-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c pantheon-mail-git --no-confirm"
+su -s /bin/sh nobody -c "sudo aur sync -c elementary-planner-git --no-confirm"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

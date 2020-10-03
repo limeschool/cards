@@ -26,25 +26,12 @@ cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
 repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
-
-# Add repositories to our profile
-tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
-[custom]
-SigLevel = Optional TrustAll
-Server = file://${LOCAL_REPO}
-EOT
+sed -i 's/~/local-repo/${LOCAL_REPO}/' ${PROFILE}/pacman.conf
 
 # Add packages to our local repository (shared between host and profile)
-# 1. Add repositories to our host
-tee -a /etc/pacman.conf > /dev/null <<EOT
-[custom]
-SigLevel = Optional TrustAll
-Server = file://${LOCAL_REPO}
-EOT
-
-# 2. Add our packages from the AUR
+cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
-pacman -Rdd granite --no-confirm # We need 'granite-git' (AUR) instead of 'granite' (Community)
+pacman -Rdd granite # We need 'granite-git' (AUR) instead of 'granite' (Community)
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview gnome-settings-daemon-elementary"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git"
@@ -56,10 +43,8 @@ pacman -Rdd granite --no-confirm # We need 'granite-git' (AUR) instead of 'grani
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-granite-git gnome-doc-utils pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git"
-pacman -Rdd granite --no-confirm # satisfies libgranite.so, but we need 'granite-git' instead
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview granite-git \
-gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-mail-git elementary-planner-git"
+gnome-doc-utils gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
+switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

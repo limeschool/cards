@@ -26,7 +26,7 @@ cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
 repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
-sed -i 's/~/local-repo/${LOCAL_REPO}/' ${PROFILE}/pacman.conf
+sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 
 # Add packages to our local repository (shared between host and profile)
 cp -f ${PROFILE}/pacman.conf /etc

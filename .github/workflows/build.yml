@@ -15,6 +15,7 @@ jobs:
       volumes:
         - /proc:/proc
         - /sys/fs/cgroup/systemd/actions_job:/sys/fs/cgroup/systemd/actions_job
+        - /sys/fs/cgroup:/sys/fs/cgroup
       options: --privileged
 
     steps:

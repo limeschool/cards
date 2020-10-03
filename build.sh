@@ -1,51 +1,35 @@
 #!/bin/bash
 export HOME=~
 export PROFILE=${HOME}/cards-profile
-export LOCAL_REPO=/var/cache/pacman/aurto
+export LOCAL_REPO=${HOME}/local-repo
 set +h
 umask 0022 # Correct file permissions
 systemd-machine-id-setup # Prevents errors when building AUR packages
 
-pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools curl --noconfirm --noprogressbar # Install packages we'll need to build
+pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
 nobody    ALL=(ALL) NOPASSWD:ALL
 EOT
 
-# Install aurutils for aurto
+# Install aurutils to build our local repository from AUR packages
 git clone https://aur.archlinux.org/aurutils.git
 chmod 777 aurutils
 cd aurutils
 su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutils as a regular user
 cd ../
 
-# Install aurto to build our local repository from AUR packages
-# 1. Create directories for aurto to build, give liberal permissions
-mkdir /.cargo
-chmod -R 777 /.cargo
-mkdir //.cache
-chmod -R 777 //.cache
-
-# 2. Obtain, build, and install aurto
-curl -L https://aur.archlinux.org/cgit/aur.git/snapshot/aurto.tar.gz | tar xz
-chmod 777 aurto
-cd aurto
-su -s /bin/sh nobody -c "makepkg -srci --noconfirm --noprogressbar" # Make aurutils as a regular user
-cd ../
-
-rm -f /etc/aurto/trusted-users # Don't prompt to install aurto packages
-
 # Begin setting up our profile
 cp -r /usr/share/archiso/configs/releng/ ${PROFILE}
 cp -rf ./cards/. ${PROFILE}
 mkdir ${LOCAL_REPO}
-#repo-add ${LOCAL_REPO}/custom.db.tar.xz
+repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
 
 # Add repositories to our profile
 tee -a ${PROFILE}/pacman.conf > /dev/null <<EOT
-[aurto]
+[custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 EOT
@@ -53,7 +37,7 @@ EOT
 # Add packages to our local repository (shared between host and profile)
 # 1. Add repositories to our host
 tee -a /etc/pacman.conf > /dev/null <<EOT
-[aurto]
+[custom]
 SigLevel = Optional TrustAll
 Server = file://${LOCAL_REPO}
 EOT
@@ -69,16 +53,9 @@ EOT
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "sudo aurto add ttf-raleway"
-su -s /bin/sh nobody -c "sudo aurto add gnome-settings-daemon-elementary"
-su -s /bin/sh nobody -c "sudo aurto add elementary-wallpapers-git"
-su -s /bin/sh nobody -c "sudo aurto add pantheon-default-settings"
-su -s /bin/sh nobody -c "sudo aurto add pantheon-session-git"
-su -s /bin/sh nobody -c "sudo aurto add switchboard-plug-elementary-tweaks-git"
-su -s /bin/sh nobody -c "sudo aurto add pantheon-screencast"
-su -s /bin/sh nobody -c "sudo aurto add pantheon-system-monitor-git"
-su -s /bin/sh nobody -c "sudo aurto add pantheon-mail-git"
-su -s /bin/sh nobody -c "sudo aurto add elementary-planner-git"
+su -s /bin/sh nobody -c "sudo aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
+gnome-settings-daemon-elementary elementary-wallpapers-git pantheon-default-settings pantheon-session-git \
+switchboard-plug-elementary-tweaks-git pantheon-screencast pantheon-system-monitor-git pantheon-mail-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -182,15 +159,14 @@ EOT
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 
 # Enable our daemons
-ln -s /usr/lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
-ln -s /usr/lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
-ln -s /usr/lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
-ln -s /usr/lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
-ln -s /usr/lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
+ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 
 # Build & bundle the disk image
 mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
-rm -rf /tmp/archiso-tmp
 mv ./out/cards-*.*.*-x86_64.iso ~

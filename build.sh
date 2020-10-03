@@ -20,8 +20,13 @@ su -s /bin/sh nobody -c "makepkg -si --noconfirm --noprogressbar" # Make aurutil
 cd ../
 
 # Install aurto to build our local repository from AUR packages
+# 1. Create directories for aurto to build, give liberal permissions
 mkdir /.cargo
 chmod -R 777 /.cargo
+mkdir //.cache
+chmod -R 777 //.cache
+
+# 2. Obtain, build, and install aurto
 curl -L https://aur.archlinux.org/cgit/aur.git/snapshot/aurto.tar.gz | tar xz
 chmod 777 aurto
 cd aurto

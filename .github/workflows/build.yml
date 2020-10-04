@@ -45,5 +45,5 @@ jobs:
       uses: actions/upload-artifact@v2.1.4
       with:
         name: local_repo
-        path: ~/local_repo
+        path: ~/local-repo
         if-no-files-found: error

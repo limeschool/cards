@@ -44,9 +44,9 @@ pacman -Rdd gsettings-desktop-schemas
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway \
-gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git \
-pantheon-screencast pantheon-system-monitor-git elementary-planner-git"
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway elementary-wallpapers-git \
+gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
+pantheon-system-monitor-git elementary-planner-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -149,7 +149,7 @@ virtualbox-guest-utils
 ## AUR
 ttf-raleway
 #gnome-settings-daemon-elementary
-#elementary-wallpapers-git
+elementary-wallpapers-git
 pantheon-default-settings
 pantheon-session-git
 switchboard-plug-elementary-tweaks-git

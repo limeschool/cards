@@ -45,7 +45,6 @@ pantheon-system-monitor-git \
 elementary-planner-git \
 clipped-git \
 easyssh-git \
-formatter-git \
 gamehub-git \
 ideogram-git \
 agenda-git \
@@ -105,7 +104,6 @@ pantheon-system-monitor-git
 elementary-planner-git
 clipped-git
 easyssh-git
-formatter-git
 gamehub-git
 ideogram-git
 agenda-git

@@ -1,5 +1,0 @@
-[GNOME Session]
-Name=Pantheon
-RequiredComponents=gala;gala-daemon;
-FallbackSession=gnome
-DesktopName=Pantheon

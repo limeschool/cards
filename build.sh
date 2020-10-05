@@ -36,7 +36,6 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 pantheon-session-git \
-gnome-settings-daemon-elementary \
 pantheon-default-settings \
 file-roller-pantheon \
 pantheon-dock-git \
@@ -95,7 +94,6 @@ virtualbox-guest-utils
 
 ## Pantheon
 pantheon-session-git
-gnome-settings-daemon-elementary
 pantheon-default-settings
 file-roller-pantheon
 pantheon-dock-git

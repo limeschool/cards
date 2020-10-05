@@ -37,7 +37,6 @@ pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 pantheon-session-git \
 pantheon-default-settings \
-file-roller-pantheon \
 pantheon-dock-git \
 pantheon-screencast \
 pantheon-system-monitor-git \
@@ -95,7 +94,7 @@ virtualbox-guest-utils
 ## Pantheon
 pantheon-session-git
 pantheon-default-settings
-file-roller-pantheon
+file-roller
 pantheon-dock-git
 pantheon-screencast
 pantheon-system-monitor-git

@@ -44,9 +44,11 @@ pacman -Rdd gsettings-desktop-schemas
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway elementary-wallpapers-git \
-gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
-pantheon-system-monitor-git elementary-planner-git"
+#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway elementary-wallpapers-git \
+#gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
+#pantheon-system-monitor-git elementary-planner-git"
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-git-meta pantheon-screencast \
+pantheon-system-monitor-git elementary-planner-git ttf-raleway"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -92,14 +94,14 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
-elementary-icon-theme
-elementary-wallpapers
+#elementary-icon-theme
+#elementary-wallpapers
 epiphany
 file-roller
-gala
-gnu-free-fonts
-gtk-engine-murrine
-gtk-theme-elementary
+#gala
+#gnu-free-fonts
+#gtk-engine-murrine
+#gtk-theme-elementary
 gtkspell3
 gvfs
 gvfs-afc
@@ -108,55 +110,60 @@ gvfs-nfs
 gvfs-smb
 light-locker
 lightdm-gtk-greeter
-lightdm-pantheon-greeter
-pantheon
-pantheon-applications-menu
-pantheon-calculator
-pantheon-calendar
-pantheon-camera
-pantheon-code
-pantheon-dpms-helper
-pantheon-files
-pantheon-geoclue2-agent
-pantheon-music
-pantheon-photos
-pantheon-polkit-agent
-pantheon-print
-pantheon-screenshot
-pantheon-shortcut-overlay
-pantheon-terminal
-pantheon-videos
-plank
+#lightdm-pantheon-greeter
+#pantheon
+#pantheon-applications-menu
+#pantheon-calculator
+#pantheon-calendar
+#pantheon-camera
+#pantheon-code
+#pantheon-dpms-helper
+#pantheon-files
+#pantheon-geoclue2-agent
+#pantheon-music
+#pantheon-photos
+#pantheon-polkit-agent
+#pantheon-print
+#pantheon-screenshot
+#pantheon-shortcut-overlay
+#pantheon-terminal
+#pantheon-videos
+#plank
 pulseaudio-bluetooth
 simple-scan
-switchboard
-switchboard-plug-desktop
-switchboard-plug-locale
-switchboard-plug-security-privacy
+#switchboard
+#switchboard-plug-desktop
+#switchboard-plug-locale
+#switchboard-plug-security-privacy
 ttf-dejavu
 ttf-droid
 ttf-liberation
 ttf-opensans
 vala
-wingpanel
-wingpanel-indicator-datetime
-wingpanel-indicator-power
-wingpanel-indicator-session
+#wingpanel
+#wingpanel-indicator-datetime
+#wingpanel-indicator-power
+#wingpanel-indicator-session
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
-ttf-raleway
-#gnome-settings-daemon-elementary
-elementary-wallpapers-git
-pantheon-default-settings
-pantheon-session-git
-switchboard-plug-elementary-tweaks-git
+#ttf-raleway
+##gnome-settings-daemon-elementary
+#elementary-wallpapers-git
+#pantheon-default-settings
+#pantheon-session-git
+#switchboard-plug-elementary-tweaks-git
+#pantheon-screencast
+#pantheon-system-monitor-git
+##pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
+#elementary-planner-git
+pantheon-git-meta
 pantheon-screencast
 pantheon-system-monitor-git
-#pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 elementary-planner-git
+ttf-raleway
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

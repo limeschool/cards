@@ -33,24 +33,23 @@ sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 # Add packages to our local repository (shared between host and profile)
 cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
-#pacman -Rdd granite # We need 'granite-git' (AUR) instead of 'granite' (Community)
 pacman -Rdd gsettings-desktop-schemas
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview gnome-settings-daemon-elementary"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-default-settings"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-session-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview switchboard-plug-elementary-tweaks-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-screencast"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-system-monitor-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-mail-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-planner-git"
-#su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway elementary-wallpapers-git \
-#gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
-#pantheon-system-monitor-git elementary-planner-git"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview elementary-wallpapers-git \
-pantheon-default-settings-git pantheon-notifications-git pantheon-session-git switchboard-plug-elementary-tweaks-git \
-pantheon-screencast pantheon-system-monitor-git elementary-planner-git ttf-raleway"
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
+pantheon-session-git \
+gnome-settings-daemon-elementary \
+pantheon-default-settings \
+file-roller-pantheon \
+pantheon-dock-git \
+pantheon-screencast \
+pantheon-system-monitor-git \
+elementary-planner-git \
+clipped-git \
+easyssh-git \
+formatter-git \
+gamehub-git \
+ideogram-git \
+agenda-git \
+yay"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -90,88 +89,81 @@ vulkan-radeon
 qt5-svg
 qt5-translations
 gnome-disk-utility
-
-## Pantheon
-capnet-assist
-#contractor
-cups
-cups-pk-helper
-#elementary-icon-theme
-#elementary-wallpapers
-epiphany
-file-roller
-#gala
-#gnu-free-fonts
-#gtk-engine-murrine
-#gtk-theme-elementary
-gtkspell3
-gvfs
-gvfs-afc
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
-light-locker
-lightdm-gtk-greeter
-#lightdm-pantheon-greeter
-#pantheon
-#pantheon-applications-menu
-#pantheon-calculator
-#pantheon-calendar
-#pantheon-camera
-#pantheon-code
-#pantheon-dpms-helper
-#pantheon-files
-#pantheon-geoclue2-agent
-#pantheon-music
-#pantheon-photos
-#pantheon-polkit-agent
-#pantheon-print
-#pantheon-screenshot
-#pantheon-shortcut-overlay
-#pantheon-terminal
-#pantheon-videos
-#plank
-pulseaudio-bluetooth
-simple-scan
-#switchboard
-#switchboard-plug-desktop
-#switchboard-plug-locale
-#switchboard-plug-security-privacy
-ttf-dejavu
-ttf-droid
-ttf-liberation
-ttf-opensans
-vala
-#wingpanel
-#wingpanel-indicator-datetime
-#wingpanel-indicator-power
-#wingpanel-indicator-session
+yay
 
 ## VirtualBox
 virtualbox-guest-utils
 
-## Pantheon (part 2)
-cups
-cups-pk-helper
-gvfs
-gvfs-afc
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
-pulseaudio-bluetooth
-pantheon
-pantheon-unstable
-light-locker
-switchboard-plug-security-privacy
-elementary-wallpapers-git
-pantheon-default-settings-git
-pantheon-notifications-git
+## Pantheon
 pantheon-session-git
-switchboard-plug-elementary-tweaks-git
+gnome-settings-daemon-elementary
+pantheon-default-settings
+file-roller-pantheon
+pantheon-dock-git
 pantheon-screencast
 pantheon-system-monitor-git
 elementary-planner-git
-ttf-raleway
+clipped-git
+easyssh-git
+formatter-git
+gamehub-git
+ideogram-git
+agenda-git
+lightdm
+contractor
+lightdm-pantheon-greeter
+sound-theme-elementary
+switchboard
+pantheon-geoclue2-agent
+pantheon-polkit-agent
+pantheon-print
+capnet-assist
+epiphany
+pantheon-calculator
+pantheon-calendar
+pantheon-camera
+pantheon-code
+pantheon-files
+pantheon-music
+pantheon-photos
+pantheon-screenshot
+pantheon-shortcut-overlay
+pantheon-terminal
+pantheon-videos
+simple-scan
+pantheon-applications-menu
+wingpanel-indicator-datetime
+wingpanel-indicator-session
+wingpanel-indicator-bluetooth
+wingpanel-indicator-keyboard
+wingpanel-indicator-network
+wingpanel-indicator-nightlight
+wingpanel-indicator-notifications
+wingpanel-indicator-power
+wingpanel-indicator-sound
+switchboard-plug-a11y
+switchboard-plug-about
+switchboard-plug-applications
+switchboard-plug-bluetooth
+switchboard-plug-datetime
+switchboard-plug-desktop
+switchboard-plug-display
+switchboard-plug-keyboard
+switchboard-plug-locale
+switchboard-plug-mouse-touchpad
+switchboard-plug-network
+switchboard-plug-notifications
+switchboard-plug-online-accounts
+switchboard-plug-parental-controls
+switchboard-plug-power
+switchboard-plug-printers
+switchboard-plug-security-privacy
+switchboard-plug-sharing
+switchboard-plug-sound
+switchboard-plug-user-accounts
+switchboard-plug-display
+switchboard-plug-sharing
+light-locker
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

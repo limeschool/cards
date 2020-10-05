@@ -42,7 +42,6 @@ pantheon-screencast \
 pantheon-system-monitor-git \
 elementary-planner-git \
 clipped-git \
-easyssh-git \
 gamehub-git \
 ideogram-git \
 agenda-git \
@@ -100,7 +99,6 @@ pantheon-screencast
 pantheon-system-monitor-git
 elementary-planner-git
 clipped-git
-easyssh-git
 gamehub-git
 ideogram-git
 agenda-git

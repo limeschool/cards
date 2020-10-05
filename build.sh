@@ -8,7 +8,7 @@ systemd-machine-id-setup # Prevents errors when building AUR packages
 
 pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt cmake \
 intltool gtk-doc gobject-introspection gnome-common polkit dbus-glib gtk3 glade meson vala \
-xorg-server-xvfb --noconfirm --noprogressbar # Install packages we'll need to build
+xorg-server-xvfb light-locker ufw --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -48,8 +48,8 @@ pacman -Rdd gsettings-desktop-schemas
 #su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview ttf-raleway elementary-wallpapers-git \
 #gnome-doc-utils libhandy1 pantheon-default-settings pantheon-session-git switchboard-plug-elementary-tweaks-git pantheon-screencast \
 #pantheon-system-monitor-git elementary-planner-git"
-su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-git-meta pantheon-screencast \
-pantheon-system-monitor-git elementary-planner-git ttf-raleway"
+su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview pantheon-dpms-helper-git pantheon-git-meta \
+pantheon-screencast pantheon-system-monitor-git elementary-planner-git ttf-raleway"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -92,7 +92,7 @@ gnome-disk-utility
 
 ## Pantheon
 capnet-assist
-contractor
+#contractor
 cups
 cups-pk-helper
 #elementary-icon-theme
@@ -160,7 +160,50 @@ virtualbox-guest-utils
 #pantheon-system-monitor-git
 ##pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 #elementary-planner-git
-pantheon-git-meta
+contractor-git
+elementary-icon-theme-git
+elementary-wallpapers-git
+gala-git
+granite-git
+gtk-theme-elementary-git
+lightdm-pantheon-greeter-git
+pantheon-applications-menu-git
+pantheon-calculator-git
+pantheon-calendar-git
+pantheon-code-git
+pantheon-default-settings-git
+pantheon-dpms-helper-git
+pantheon-files-git
+pantheon-music-git
+pantheon-screenshot-git
+pantheon-session-git
+pantheon-videos-git
+switchboard-git
+switchboard-plug-a11y-git
+switchboard-plug-about-git
+switchboard-plug-applications-git
+switchboard-plug-datetime-git
+switchboard-plug-desktop-git
+switchboard-plug-display-git
+switchboard-plug-keyboard-git
+switchboard-plug-locale-git
+switchboard-plug-mouse-touchpad-git
+switchboard-plug-network-git
+switchboard-plug-notifications-git
+switchboard-plug-parental-controls-git
+switchboard-plug-power-git
+switchboard-plug-printers-git
+switchboard-plug-security-privacy-git
+switchboard-plug-sharing-git
+switchboard-plug-user-accounts-git
+wingpanel-indicator-bluetooth-git
+wingpanel-indicator-datetime-git
+wingpanel-indicator-network-git
+wingpanel-indicator-nightlight-git
+wingpanel-indicator-notifications-git
+wingpanel-indicator-power-git
+wingpanel-indicator-session-git
+wingpanel-indicator-sound-git
 pantheon-screencast
 pantheon-system-monitor-git
 elementary-planner-git

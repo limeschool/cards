@@ -7,8 +7,7 @@ umask 0022 # Correct file permissions
 systemd-machine-id-setup # Prevents errors when building AUR packages
 
 pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt cmake \
-intltool gtk-doc gobject-introspection gnome-common polkit dbus-glib gtk3 glade meson vala \
-xorg-server-xvfb light-locker ufw go --noconfirm --noprogressbar # Install packages we'll need to build
+intltool gtk-doc gobject-introspection gnome-common polkit dbus-glib --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -35,9 +34,13 @@ cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
-pantheon-session-git \
+ttf-raleway \
+elementary-wallpapers-git \
+gnome-doc-utils \
+libhandy1 \
 pantheon-default-settings \
-pantheon-dock-git \
+pantheon-session-git \
+switchboard-plug-elementary-tweaks-git \
 pantheon-screencast \
 pantheon-system-monitor-git \
 elementary-planner-git \
@@ -45,6 +48,7 @@ clipped-git \
 gamehub-git \
 ideogram-git \
 agenda-git \
+pantheon-dock-git \
 yay"
 
 echo -e "LOCAL_REPO:\n---"
@@ -78,62 +82,58 @@ qt5-wayland
 xorg-server-xwayland
 wlc
 
-## Display & Misc. Desktop Environment
+## Display & Utilities
 lightdm
 nvidia-dkms
 vulkan-radeon
 qt5-svg
 qt5-translations
 gnome-disk-utility
-yay
-
-## VirtualBox
-virtualbox-guest-utils
 
 ## Pantheon
-pantheon-session-git
-pantheon-default-settings
-file-roller
-pantheon-dock-git
-pantheon-screencast
-pantheon-system-monitor-git
-elementary-planner-git
-clipped-git
-gamehub-git
-ideogram-git
-agenda-git
-lightdm
-contractor
-lightdm-pantheon-greeter
-sound-theme-elementary
-switchboard
-pantheon-geoclue2-agent
-pantheon-polkit-agent
-pantheon-print
 capnet-assist
+contractor
+cups
+cups-pk-helper
+elementary-icon-theme
+elementary-wallpapers
 epiphany
+file-roller
+gala
+gnu-free-fonts
+gtk-engine-murrine
+gtk-theme-elementary
+gtkspell3
+gvfs
+gvfs-afc
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
+light-locker
+lightdm-gtk-greeter
+lightdm-pantheon-greeter
+pantheon
+pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
 pantheon-camera
 pantheon-code
+pantheon-dpms-helper
 pantheon-files
+pantheon-geoclue2-agent
 pantheon-music
 pantheon-photos
+pantheon-polkit-agent
+pantheon-print
 pantheon-screenshot
 pantheon-shortcut-overlay
 pantheon-terminal
 pantheon-videos
+plank
+pulseaudio-bluetooth
 simple-scan
-pantheon-applications-menu
-wingpanel-indicator-datetime
-wingpanel-indicator-session
-wingpanel-indicator-bluetooth
-wingpanel-indicator-keyboard
-wingpanel-indicator-network
-wingpanel-indicator-nightlight
-wingpanel-indicator-notifications
-wingpanel-indicator-power
-wingpanel-indicator-sound
+sound-theme-elementary
+switchboard
 switchboard-plug-a11y
 switchboard-plug-about
 switchboard-plug-applications
@@ -156,12 +156,56 @@ switchboard-plug-sound
 switchboard-plug-user-accounts
 switchboard-plug-display
 switchboard-plug-sharing
-light-locker
+ttf-dejavu
+ttf-droid
+ttf-liberation
+ttf-opensans
+vala
+wingpanel
+wingpanel-indicator-datetime
+wingpanel-indicator-power
+wingpanel-indicator-session
+wingpanel-indicator-datetime
+wingpanel-indicator-session
+wingpanel-indicator-bluetooth
+wingpanel-indicator-keyboard
+wingpanel-indicator-network
+wingpanel-indicator-nightlight
+wingpanel-indicator-notifications
+wingpanel-indicator-power
+wingpanel-indicator-sound
+
+## VirtualBox
+virtualbox-guest-utils
+
+## AUR
+ttf-raleway
+#gnome-settings-daemon-elementary
+elementary-wallpapers-git
+pantheon-default-settings
+pantheon-session-git
+switchboard-plug-elementary-tweaks-git
+pantheon-screencast
+pantheon-system-monitor-git
+#pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
+elementary-planner-git
+pantheon-dock-git
+pantheon-screencast
+pantheon-system-monitor-git
+elementary-planner-git
+clipped-git
+gamehub-git
+ideogram-git
+agenda-git
+yay
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 
 # Enable our daemons
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants

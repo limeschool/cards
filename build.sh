@@ -84,13 +84,15 @@ wlc
 
 ## Display & Utilities
 lightdm
-nvidia # Nvidia drivers
-nvidia-utils # Vulkan for Nvidia
-xf86-video-amdgpu # AMD drivers
-vulkan-radeon # Vulkan for AMD
-xf86-video-intel # Intel drivers
-vulkan-intel # Vulkan for Intel
-vulkan-icd-loader # Vulkan support
+xf86-video-fbdev # X.org framebuffer video driver
+xf86-video-vesa # X.org vesa video driver
+#nvidia # Nvidia drivers
+#nvidia-utils # Vulkan for Nvidia
+#xf86-video-amdgpu # AMD drivers
+#vulkan-radeon # Vulkan for AMD
+#xf86-video-intel # Intel drivers
+#vulkan-intel # Vulkan for Intel
+#vulkan-icd-loader # Vulkan support
 qt5-svg
 qt5-translations
 gnome-disk-utility
@@ -185,7 +187,7 @@ ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/sy
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
 
-ln -s '/usr/share/backgrounds/Sunset by the Pier.jpg' ${PROFILE}/airootfs/usr/share/backgrounds/elementaryos-default # Set default desktop background
+ln -s /usr/share/backgrounds/elementaryos-default '${PROFILE}/airootfs/usr/share/backgrounds/Sunset by the Pier.jpg' # Set default desktop background
 
 # Build & bundle the disk image
 mkdir ./out

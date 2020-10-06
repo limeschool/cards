@@ -134,28 +134,9 @@ pulseaudio-bluetooth
 simple-scan
 sound-theme-elementary
 switchboard
-switchboard-plug-a11y
-switchboard-plug-about
-switchboard-plug-applications
-switchboard-plug-bluetooth
-switchboard-plug-datetime
 switchboard-plug-desktop
-switchboard-plug-display
-switchboard-plug-keyboard
 switchboard-plug-locale
-switchboard-plug-mouse-touchpad
-switchboard-plug-network
-switchboard-plug-notifications
-switchboard-plug-online-accounts
-switchboard-plug-parental-controls
-switchboard-plug-power
-switchboard-plug-printers
 switchboard-plug-security-privacy
-switchboard-plug-sharing
-switchboard-plug-sound
-switchboard-plug-user-accounts
-switchboard-plug-display
-switchboard-plug-sharing
 ttf-dejavu
 ttf-droid
 ttf-liberation
@@ -165,15 +146,6 @@ wingpanel
 wingpanel-indicator-datetime
 wingpanel-indicator-power
 wingpanel-indicator-session
-wingpanel-indicator-datetime
-wingpanel-indicator-session
-wingpanel-indicator-bluetooth
-wingpanel-indicator-keyboard
-wingpanel-indicator-network
-wingpanel-indicator-nightlight
-wingpanel-indicator-notifications
-wingpanel-indicator-power
-wingpanel-indicator-sound
 
 ## VirtualBox
 virtualbox-guest-utils
@@ -211,6 +183,8 @@ ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+
+ln -s '/usr/share/backgrounds/Sunset by the Pier.jpg' '/usr/share/backgrounds/elementaryos-default' # Set default desktop background
 
 # Build & bundle the disk image
 mkdir ./out

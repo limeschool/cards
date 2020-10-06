@@ -84,8 +84,13 @@ wlc
 
 ## Display & Utilities
 lightdm
-nvidia-dkms
-vulkan-radeon
+nvidia # Nvidia drivers
+nvidia-utils # Vulkan for Nvidia
+xf86-video-amdgpu # AMD drivers
+vulkan-radeon # Vulkan for AMD
+xf86-video-intel # Intel drivers
+vulkan-intel # Vulkan for Intel
+vulkan-icd-loader # Vulkan support
 qt5-svg
 qt5-translations
 gnome-disk-utility
@@ -132,7 +137,6 @@ pantheon-videos
 plank
 pulseaudio-bluetooth
 simple-scan
-sound-theme-elementary
 switchboard
 switchboard-plug-desktop
 switchboard-plug-locale
@@ -162,13 +166,8 @@ pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 elementary-planner-git
 pantheon-dock-git
-pantheon-screencast
-pantheon-system-monitor-git
-elementary-planner-git
 clipped-git
-gamehub-git
 ideogram-git
-agenda-git
 yay
 EOT
 
@@ -178,13 +177,15 @@ rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/modules-load.d
 ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
 
-ln -s '/usr/share/backgrounds/Sunset by the Pier.jpg' '/usr/share/backgrounds/elementaryos-default' # Set default desktop background
+ln -s '/usr/share/backgrounds/Sunset by the Pier.jpg' ${PROFILE}/airootfs/usr/share/backgrounds/elementaryos-default # Set default desktop background
 
 # Build & bundle the disk image
 mkdir ./out

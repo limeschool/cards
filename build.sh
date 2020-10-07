@@ -75,24 +75,17 @@ intel-ucode
 intel-tbb
 
 ## Wayland
-#wayland
-#wayland-protocols
-#glfw-wayland
-#qt5-wayland
-#xorg-server-xwayland
-#wlc
+wayland
+wayland-protocols
+glfw-wayland
+qt5-wayland
+xorg-server-xwayland
+wlc
 
 ## Display & Utilities
 lightdm
-#xf86-video-fbdev # X.org framebuffer video driver
-#xf86-video-vesa # X.org vesa video driver
-#nvidia # Nvidia drivers
-#nvidia-utils # Vulkan for Nvidia
-#xf86-video-amdgpu # AMD drivers
-#vulkan-radeon # Vulkan for AMD
-#xf86-video-intel # Intel drivers
-#vulkan-intel # Vulkan for Intel
-#vulkan-icd-loader # Vulkan support
+nvidia-dkms
+vulkan-radeon
 qt5-svg
 qt5-translations
 gnome-disk-utility
@@ -167,8 +160,8 @@ pantheon-screencast
 pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 elementary-planner-git
-clipped-git
-ideogram-git
+#clipped-git
+#ideogram-git
 yay
 EOT
 

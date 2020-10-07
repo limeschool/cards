@@ -75,12 +75,12 @@ intel-ucode
 intel-tbb
 
 ## Wayland
-wayland
-wayland-protocols
-glfw-wayland
-qt5-wayland
-xorg-server-xwayland
-wlc
+#wayland
+#wayland-protocols
+#glfw-wayland
+#qt5-wayland
+#xorg-server-xwayland
+#wlc
 
 ## Display & Utilities
 lightdm

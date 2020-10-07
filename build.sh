@@ -154,7 +154,7 @@ wingpanel-indicator-power
 wingpanel-indicator-session
 
 ## VirtualBox
-#virtualbox-guest-utils
+virtualbox-guest-utils
 
 ## AUR
 ttf-raleway
@@ -167,7 +167,6 @@ pantheon-screencast
 pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 elementary-planner-git
-pantheon-dock-git
 clipped-git
 ideogram-git
 yay

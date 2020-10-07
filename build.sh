@@ -84,7 +84,7 @@ wlc
 
 ## Display & Utilities
 lightdm
-xf86-video-fbdev # X.org framebuffer video driver
+#xf86-video-fbdev # X.org framebuffer video driver
 #xf86-video-vesa # X.org vesa video driver
 #nvidia # Nvidia drivers
 #nvidia-utils # Vulkan for Nvidia

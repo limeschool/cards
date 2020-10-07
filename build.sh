@@ -154,7 +154,7 @@ wingpanel-indicator-power
 wingpanel-indicator-session
 
 ## VirtualBox
-virtualbox-guest-utils
+#virtualbox-guest-utils
 
 ## AUR
 ttf-raleway

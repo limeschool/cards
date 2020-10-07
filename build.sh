@@ -85,7 +85,7 @@ wlc
 ## Display & Utilities
 lightdm
 xf86-video-fbdev # X.org framebuffer video driver
-xf86-video-vesa # X.org vesa video driver
+#xf86-video-vesa # X.org vesa video driver
 #nvidia # Nvidia drivers
 #nvidia-utils # Vulkan for Nvidia
 #xf86-video-amdgpu # AMD drivers
@@ -185,7 +185,7 @@ ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
-ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
+#ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
 
 ln -s /usr/share/backgrounds/elementaryos-default '${PROFILE}/airootfs/usr/share/backgrounds/Sunset by the Pier.jpg' # Set default desktop background
 

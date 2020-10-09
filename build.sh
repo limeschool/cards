@@ -58,38 +58,32 @@ echo "---"
 
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
-## X11 and drivers
-xorg
-xorg-server
-xorg-drivers
-xorg-xinit
-xorg-xclock
-xorg-twm
-xterm
-xf86-input-libinput
-mesa
-noto-fonts
-ttf-hack
+## Display & drivers
+glfw-wayland
+intel-tbb
+intel-ucode
 libva
 libva-mesa-driver
-intel-ucode
-intel-tbb
-
-## Wayland
-wayland
-wayland-protocols
-glfw-wayland
-qt5-wayland
-xorg-server-xwayland
-wlc
-
-## Display & Utilities
+mesa
+noto-fonts
 nvidia-dkms
-vulkan-radeon
 qt5-svg
 qt5-translations
-gnome-disk-utility
-gnome-tweaks
+qt5-wayland
+ttf-hack
+vulkan-radeon
+wayland
+wayland-protocols
+wlc
+xf86-input-libinput
+xorg
+xorg-drivers
+xorg-server
+xorg-server-xwayland
+xorg-twm
+xorg-xclock
+xorg-xinit
+xterm
 
 ## Desktop Environment
 capnet-assist
@@ -101,16 +95,32 @@ elementary-wallpapers
 epiphany
 file-roller
 gala
-gnome
+gdm
+gnome-backgrounds
+gnome-control-center
+gnome-disk-utility
+gnome-keyring
+gnome-shell
+gnome-shell-extensions
+gnome-software
+gnome-themes-extra
+gnome-tweaks
+gnome-user-share
+gnome-video-effects
 gnu-free-fonts
+grilo-plugins
 gtk-engine-murrine
 gtk-theme-elementary
 gtkspell3
 gvfs
 gvfs-afc
+gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+mutter
+networkmanager
+orca
 pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
@@ -129,6 +139,7 @@ pantheon-terminal
 pantheon-videos
 plank
 pulseaudio-bluetooth
+rygel
 simple-scan
 switchboard
 switchboard-plug-a11y
@@ -151,41 +162,46 @@ switchboard-plug-security-privacy
 switchboard-plug-sharing
 switchboard-plug-sound
 switchboard-plug-user-accounts
+tracker
+tracker-miners
+tracker3
+tracker3-miners
 ttf-dejavu
 ttf-droid
 ttf-liberation
 ttf-opensans
 vala
 wingpanel
-wingpanel-indicator-datetime
-wingpanel-indicator-session
 wingpanel-indicator-bluetooth
+wingpanel-indicator-datetime
 wingpanel-indicator-keyboard
 wingpanel-indicator-network
 wingpanel-indicator-nightlight
 wingpanel-indicator-notifications
 wingpanel-indicator-power
+wingpanel-indicator-session
 wingpanel-indicator-sound
+xdg-user-dirs-gtk
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
-whitesur-gtk-theme-git
-whitesur-icon-theme-git
-whitesur-cursor-theme-git
-ttf-raleway
-elementary-wallpapers-git
-pantheon-default-settings
-pantheon-session-git
-switchboard-plug-elementary-tweaks-git
-pantheon-screencast
-pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 clipped-git
-ideogram-git
-yay
+elementary-wallpapers-git
 gnome-shell-extension-dash-to-dock
+ideogram-git
+pantheon-default-settings
+pantheon-screencast
+pantheon-session-git
+pantheon-system-monitor-git
+switchboard-plug-elementary-tweaks-git
+ttf-raleway
+whitesur-cursor-theme-git
+whitesur-gtk-theme-git
+whitesur-icon-theme-git
+yay
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

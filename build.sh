@@ -46,11 +46,11 @@ pantheon-system-monitor-git \
 clipped-git \
 gamehub-git \
 ideogram-git \
-agenda-git \
 yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
-whitesur-cursor-theme-git"
+whitesur-cursor-theme-git \
+gnome-shell-extension-dash-to-dock"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -84,14 +84,14 @@ xorg-server-xwayland
 wlc
 
 ## Display & Utilities
-lightdm
 nvidia-dkms
 vulkan-radeon
 qt5-svg
 qt5-translations
 gnome-disk-utility
+gnome-tweaks
 
-## Pantheon
+## Desktop Environment
 capnet-assist
 contractor
 cups
@@ -101,6 +101,7 @@ elementary-wallpapers
 epiphany
 file-roller
 gala
+gnome
 gnu-free-fonts
 gtk-engine-murrine
 gtk-theme-elementary
@@ -110,10 +111,6 @@ gvfs-afc
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
-#light-locker
-#lightdm-gtk-greeter
-#lightdm-pantheon-greeter
-#pantheon
 pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
@@ -134,32 +131,50 @@ plank
 pulseaudio-bluetooth
 simple-scan
 switchboard
+switchboard-plug-a11y
+switchboard-plug-about
+switchboard-plug-applications
+switchboard-plug-bluetooth
+switchboard-plug-datetime
 switchboard-plug-desktop
+switchboard-plug-display
+switchboard-plug-keyboard
 switchboard-plug-locale
+switchboard-plug-mouse-touchpad
+switchboard-plug-network
+switchboard-plug-notifications
+switchboard-plug-online-accounts
+switchboard-plug-parental-controls
+switchboard-plug-power
+switchboard-plug-printers
 switchboard-plug-security-privacy
+switchboard-plug-sharing
+switchboard-plug-sound
+switchboard-plug-user-accounts
 ttf-dejavu
 ttf-droid
 ttf-liberation
 ttf-opensans
 vala
-#wingpanel
-#wingpanel-indicator-datetime
-#wingpanel-indicator-power
-#wingpanel-indicator-session
-
-# GNOME
-gnome
-gnome-extra
-whitesur-icon-theme-git
-whitesur-cursor-theme-git
+wingpanel
+wingpanel-indicator-datetime
+wingpanel-indicator-session
+wingpanel-indicator-bluetooth
+wingpanel-indicator-keyboard
+wingpanel-indicator-network
+wingpanel-indicator-nightlight
+wingpanel-indicator-notifications
+wingpanel-indicator-power
+wingpanel-indicator-sound
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
 whitesur-gtk-theme-git
+whitesur-icon-theme-git
+whitesur-cursor-theme-git
 ttf-raleway
-#gnome-settings-daemon-elementary
 elementary-wallpapers-git
 pantheon-default-settings
 pantheon-session-git
@@ -170,6 +185,7 @@ pantheon-system-monitor-git
 clipped-git
 ideogram-git
 yay
+gnome-shell-extension-dash-to-dock
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
@@ -179,14 +195,12 @@ mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d
-#ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
-
-ln -s /usr/share/backgrounds/elementaryos-default '${PROFILE}/airootfs/usr/share/backgrounds/Sunset by the Pier.jpg' # Set default desktop background
 
 # Build & bundle the disk image
 mkdir ./out

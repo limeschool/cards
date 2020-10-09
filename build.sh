@@ -48,8 +48,10 @@ clipped-git \
 gamehub-git \
 ideogram-git \
 agenda-git \
-pantheon-dock-git \
-yay"
+yay \
+whitesur-gtk-theme-git \
+whitesur-icon-theme-git \
+whitesur-cursor-theme-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -109,10 +111,10 @@ gvfs-afc
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
-light-locker
-lightdm-gtk-greeter
-lightdm-pantheon-greeter
-pantheon
+#light-locker
+#lightdm-gtk-greeter
+#lightdm-pantheon-greeter
+#pantheon
 pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
@@ -141,15 +143,22 @@ ttf-droid
 ttf-liberation
 ttf-opensans
 vala
-wingpanel
-wingpanel-indicator-datetime
-wingpanel-indicator-power
-wingpanel-indicator-session
+#wingpanel
+#wingpanel-indicator-datetime
+#wingpanel-indicator-power
+#wingpanel-indicator-session
+
+# GNOME
+gnome
+gnome-extra
+whitesur-icon-theme-git
+whitesur-cursor-theme-git
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
+whitesur-gtk-theme-git
 ttf-raleway
 #gnome-settings-daemon-elementary
 elementary-wallpapers-git
@@ -160,8 +169,8 @@ pantheon-screencast
 pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 elementary-planner-git
-#clipped-git
-#ideogram-git
+clipped-git
+ideogram-git
 yay
 EOT
 
@@ -172,12 +181,12 @@ mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d
-ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+#ln -s /lib/systemd/system/lightdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
-#ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
+ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
 
 ln -s /usr/share/backgrounds/elementaryos-default '${PROFILE}/airootfs/usr/share/backgrounds/Sunset by the Pier.jpg' # Set default desktop background
 

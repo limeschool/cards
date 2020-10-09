@@ -43,7 +43,6 @@ pantheon-session-git \
 switchboard-plug-elementary-tweaks-git \
 pantheon-screencast \
 pantheon-system-monitor-git \
-elementary-planner-git \
 clipped-git \
 gamehub-git \
 ideogram-git \
@@ -168,7 +167,6 @@ switchboard-plug-elementary-tweaks-git
 pantheon-screencast
 pantheon-system-monitor-git
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
-elementary-planner-git
 clipped-git
 ideogram-git
 yay

@@ -42,9 +42,7 @@ pantheon-default-settings \
 pantheon-session-git \
 switchboard-plug-elementary-tweaks-git \
 pantheon-screencast \
-pantheon-system-monitor-git \
 clipped-git \
-gamehub-git \
 ideogram-git \
 yay \
 whitesur-gtk-theme-git \
@@ -90,7 +88,7 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
-elementary-icon-theme
+#elementary-icon-theme
 elementary-wallpapers
 epiphany
 file-roller
@@ -101,30 +99,31 @@ gnome-control-center
 gnome-disk-utility
 gnome-keyring
 gnome-shell
-#gnome-shell-extensions
+gnome-shell-extensions
 gnome-software
+gnome-system-monitor
 #gnome-themes-extra
-#gnome-tweaks
+gnome-tweaks
 gnome-user-share
 #gnome-video-effects
 gnu-free-fonts
 #grilo-plugins
 gtk-engine-murrine
-gtk-theme-elementary
+#gtk-theme-elementary
 gtkspell3
-gvfs
-gvfs-afc
-gvfs-gphoto2
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
+#gvfs
+#gvfs-afc
+#gvfs-gphoto2
+#gvfs-mtp
+#gvfs-nfs
+#gvfs-smb
 mutter
 networkmanager
 orca
 pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
-pantheon-camera
+#pantheon-camera
 pantheon-code
 pantheon-dpms-helper
 pantheon-files
@@ -140,28 +139,8 @@ pantheon-videos
 plank
 pulseaudio-bluetooth
 rygel
-simple-scan
-switchboard
-switchboard-plug-a11y
-switchboard-plug-about
-switchboard-plug-applications
-switchboard-plug-bluetooth
-switchboard-plug-datetime
-switchboard-plug-desktop
-switchboard-plug-display
-switchboard-plug-keyboard
-switchboard-plug-locale
-switchboard-plug-mouse-touchpad
-switchboard-plug-network
-switchboard-plug-notifications
-switchboard-plug-online-accounts
-switchboard-plug-parental-controls
-switchboard-plug-power
-switchboard-plug-printers
-switchboard-plug-security-privacy
-switchboard-plug-sharing
-switchboard-plug-sound
-switchboard-plug-user-accounts
+#simple-scan
+sound-theme-elementary
 tracker
 tracker-miners
 tracker3
@@ -186,21 +165,21 @@ xdg-user-dirs-gtk
 # Utilities
 archlinux-appstream-data
 flatpak
+fractal
+geary
 gnome-software-packagekit-plugin
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
-#pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 clipped-git
 elementary-wallpapers-git
-#gnome-shell-extension-dash-to-dock
+gnome-shell-extension-dash-to-dock
 ideogram-git
 pantheon-default-settings
 pantheon-screencast
 pantheon-session-git
-pantheon-system-monitor-git
 switchboard-plug-elementary-tweaks-git
 ttf-raleway
 whitesur-cursor-theme-git
@@ -210,6 +189,7 @@ yay
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
+cp ${PROFILE}/airootfs/usr/share/backgrounds/* ${PROFILE}/airootfs/usr/share/backgrounds/gnome/ # Make elementary-backgrounds available in GNOME settings
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants

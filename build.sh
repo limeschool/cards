@@ -101,14 +101,14 @@ gnome-control-center
 gnome-disk-utility
 gnome-keyring
 gnome-shell
-gnome-shell-extensions
+#gnome-shell-extensions
 gnome-software
-gnome-themes-extra
-gnome-tweaks
+#gnome-themes-extra
+#gnome-tweaks
 gnome-user-share
-gnome-video-effects
+#gnome-video-effects
 gnu-free-fonts
-grilo-plugins
+#grilo-plugins
 gtk-engine-murrine
 gtk-theme-elementary
 gtkspell3
@@ -135,7 +135,7 @@ pantheon-polkit-agent
 pantheon-print
 pantheon-screenshot
 pantheon-shortcut-overlay
-pantheon-terminal
+#pantheon-terminal
 pantheon-videos
 plank
 pulseaudio-bluetooth
@@ -183,6 +183,11 @@ wingpanel-indicator-session
 wingpanel-indicator-sound
 xdg-user-dirs-gtk
 
+# Utilities
+archlinux-appstream-data
+flatpak
+gnome-software-packagekit-plugin
+
 ## VirtualBox
 virtualbox-guest-utils
 
@@ -190,7 +195,7 @@ virtualbox-guest-utils
 #pantheon-mail-git # AUR package depends on "libhandy-1", not "libhandy1", which exists
 clipped-git
 elementary-wallpapers-git
-gnome-shell-extension-dash-to-dock
+#gnome-shell-extension-dash-to-dock
 ideogram-git
 pantheon-default-settings
 pantheon-screencast

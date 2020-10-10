@@ -168,6 +168,7 @@ flatpak
 fractal
 geary
 gnome-software-packagekit-plugin
+pacman-contrib
 
 ## VirtualBox
 virtualbox-guest-utils

@@ -49,14 +49,16 @@ mv /usr/share/gtk-2.0/gtkrc.cards /usr/share/gtk-2.0/gtkrc
 mv /usr/share/gtk-3.0/settings.ini.cards /usr/share/gtk-3.0/settings.ini
 
 chmod -R 777 /usr/share/gnome-shell/extensions/ # Ensure extensions do not experience permissions errors
-gsettings set org.gnome.desktop.wm.preferences button-layout ':close,maximize,minimize:' # Set GNOME titlebar buttons
+gsettings set org.gnome.desktop.wm.preferences button-layout ':close,maximize,minimize' # Set GNOME titlebar buttons
 gsettings set org.gnome.mutter center-new-windows 'true' # Center new windows
 gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark" # Set GTK theme
 gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark' # Set icon theme
 gsettings set org.gnome.desktop.interface cursor-theme 'WhiteSur-cursors' # Set mouse cursor theme
-gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']" # Enable dock
+gsettings set org.gnome.shell enabled-extensions "['dash-to-dock@micxgx.gmail.com']" # Enable dock
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM # Move dock to bottom of screen
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true # Autohide the dock when it interferes with a window
+gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true # Theme the dock using the GTK theme
+glib-compile-schemas /usr/share/glib-2.0/schemas/ # Compile w/ Cards' gschema.override
 
 # Enable task completion notifications for pantheon-terminal
 tee -a /etc/zsh/zshrc > /dev/null <<EOT

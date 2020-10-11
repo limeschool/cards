@@ -44,14 +44,7 @@ yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
 whitesur-cursor-theme-git \
-gnome-shell-extension-dash-to-dock \
-telegram-purple \
-slack-libpurple-git \
-pidgin-sipe \
-libpurple-meanwhile \
-purple-icyque-git \
-purple-hangouts-git \
-purple-discord-git"
+gnome-shell-extension-dash-to-dock"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -149,13 +142,7 @@ flatpak
 geary
 gnome-software-packagekit-plugin
 pacman-contrib
-pidgin
-pidgin-libnotify
-purple-facebook
-libpurple-lurch
-pidgin-kwallet
-pidgin-otr
-purple-skypeweb
+dino
 
 ## VirtualBox
 virtualbox-guest-utils
@@ -170,13 +157,6 @@ whitesur-cursor-theme-git
 whitesur-gtk-theme-git
 whitesur-icon-theme-git
 yay
-telegram-purple
-slack-libpurple-git
-pidgin-sipe
-libpurple-meanwhile
-purple-icyque-git
-purple-hangouts-git
-purple-discord-git
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

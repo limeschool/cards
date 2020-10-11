@@ -89,10 +89,10 @@ contractor
 cups
 cups-pk-helper
 #elementary-icon-theme
-elementary-wallpapers
+#elementary-wallpapers
 epiphany
 file-roller
-gala
+#gala
 gdm
 gnome-backgrounds
 gnome-control-center
@@ -120,17 +120,17 @@ gtkspell3
 mutter
 networkmanager
 orca
-pantheon-applications-menu
+#pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
 #pantheon-camera
 pantheon-code
-pantheon-dpms-helper
+#pantheon-dpms-helper
 pantheon-files
-pantheon-geoclue2-agent
+#pantheon-geoclue2-agent
 pantheon-music
 pantheon-photos
-pantheon-polkit-agent
+#pantheon-polkit-agent
 pantheon-print
 pantheon-screenshot
 pantheon-shortcut-overlay
@@ -150,16 +150,6 @@ ttf-droid
 ttf-liberation
 ttf-opensans
 vala
-wingpanel
-wingpanel-indicator-bluetooth
-wingpanel-indicator-datetime
-wingpanel-indicator-keyboard
-wingpanel-indicator-network
-wingpanel-indicator-nightlight
-wingpanel-indicator-notifications
-wingpanel-indicator-power
-wingpanel-indicator-session
-wingpanel-indicator-sound
 xdg-user-dirs-gtk
 
 # Utilities

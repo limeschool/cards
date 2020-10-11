@@ -11,7 +11,7 @@ locale-gen
 
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 
-# Remove unwanted program icons
+# Remove unwanted app entries
 rm -f /usr/share/applications/avahi-discover.desktop
 rm -f /usr/share/applications/gda-browser-5.0.desktop
 rm -f /usr/share/applications/gda-control-center-5.0.desktop
@@ -25,6 +25,22 @@ rm -f /usr/share/applications/stoken-gui-small.desktop
 rm -f /usr/share/applications/stoken-gui.desktop
 rm -f /usr/share/applications/uxterm.desktop
 rm -f /usr/share/applications/vim.desktop
+
+# Genericize app entries
+rm -f /usr/share/applications/com.github.cassidyjames.ideogram.desktop
+rm -f /usr/share/applications/com.github.davidmhewitt.clipped.desktop
+rm -f /usr/share/applications/geary-autostart.desktop
+rm -f /usr/share/applications/org.gnome.Cheese.desktop
+rm -f /usr/share/applications/org.gnome.Geary.desktop
+rm -f /usr/share/applications/plank.desktop
+rm -f /usr/share/applications/xterm.desktop
+mv /usr/share/applications/com.github.cassidyjames.ideogram.desktop.cards /usr/share/applications/com.github.cassidyjames.ideogram.desktop
+mv /usr/share/applications/com.github.davidmhewitt.clipped.desktop.cards /usr/share/applications/com.github.davidmhewitt.clipped.desktop
+mv /usr/share/applications/geary-autostart.desktop.cards /usr/share/applications/geary-autostart.desktop
+mv /usr/share/applications/org.gnome.Cheese.desktop.cards /usr/share/applications/org.gnome.Cheese.desktop
+mv /usr/share/applications/org.gnome.Geary.desktop.cards /usr/share/applications/org.gnome.Geary.desktop
+mv /usr/share/applications/plank.desktop.cards /usr/share/applications/plank.desktop
+mv /usr/share/applications/xterm.desktop.cards /usr/share/applications/xterm.desktop
 
 # Replace GTK settings files
 rm -f /usr/share/gtk-2.0/gtkrc

@@ -36,13 +36,11 @@ rm -f /usr/share/applications/com.github.davidmhewitt.clipped.desktop
 rm -f /usr/share/applications/geary-autostart.desktop
 rm -f /usr/share/applications/org.gnome.Cheese.desktop
 rm -f /usr/share/applications/org.gnome.Geary.desktop
-rm -f /usr/share/applications/plank.desktop
 mv /usr/share/applications/com.github.cassidyjames.ideogram.desktop.cards /usr/share/applications/com.github.cassidyjames.ideogram.desktop
 mv /usr/share/applications/com.github.davidmhewitt.clipped.desktop.cards /usr/share/applications/com.github.davidmhewitt.clipped.desktop
 mv /usr/share/applications/geary-autostart.desktop.cards /usr/share/applications/geary-autostart.desktop
 mv /usr/share/applications/org.gnome.Cheese.desktop.cards /usr/share/applications/org.gnome.Cheese.desktop
 mv /usr/share/applications/org.gnome.Geary.desktop.cards /usr/share/applications/org.gnome.Geary.desktop
-mv /usr/share/applications/plank.desktop.cards /usr/share/applications/plank.desktop
 
 # Replace GTK settings files
 rm -f /usr/share/gtk-2.0/gtkrc
@@ -50,9 +48,15 @@ rm -f /usr/share/gtk-3.0/settings.ini
 mv /usr/share/gtk-2.0/gtkrc.cards /usr/share/gtk-2.0/gtkrc
 mv /usr/share/gtk-3.0/settings.ini.cards /usr/share/gtk-3.0/settings.ini
 
-gsettings set org.gnome.desktop.wm.preferences button-layout ‘:minimize,maximize,close’ # Set GNOME titlebar buttons
 chmod -R 777 /usr/share/gnome-shell/extensions/ # Ensure extensions do not experience permissions errors
-#cp /usr/share/backgrounds/* /usr/share/backgrounds/gnome/ # Make elementary-backgrounds available in GNOME settings
+gsettings set org.gnome.desktop.wm.preferences button-layout ':close,maximize,minimize:' # Set GNOME titlebar buttons
+gsettings set org.gnome.mutter center-new-windows 'true' # Center new windows
+gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark" # Set GTK theme
+gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark' # Set icon theme
+gsettings set org.gnome.desktop.interface cursor-theme 'WhiteSur-cursors' # Set mouse cursor theme
+gsettings set org.gnome.shell enabled-extensions "['dash-to-panel@jderose9.github.com']" # Enable dock
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM # Move dock to bottom of screen
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide true # Autohide the dock when it interferes with a window
 
 # Enable task completion notifications for pantheon-terminal
 tee -a /etc/zsh/zshrc > /dev/null <<EOT

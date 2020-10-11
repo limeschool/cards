@@ -35,12 +35,8 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 ttf-raleway \
-elementary-wallpapers-git \
 gnome-doc-utils \
 libhandy1 \
-pantheon-default-settings \
-pantheon-session-git \
-switchboard-plug-elementary-tweaks-git \
 pantheon-screencast \
 clipped-git \
 ideogram-git \
@@ -48,7 +44,14 @@ yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
 whitesur-cursor-theme-git \
-gnome-shell-extension-dash-to-dock"
+gnome-shell-extension-dash-to-dock \
+telegram-purple \
+slack-libpurple-git \
+pidgin-sipe \
+libpurple-meanwhile \
+purple-icyque-git \
+purple-hangouts-git \
+purple-discord-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -88,11 +91,8 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
-#elementary-icon-theme
-#elementary-wallpapers
 epiphany
 file-roller
-#gala
 gdm
 gnome-backgrounds
 gnome-control-center
@@ -102,14 +102,10 @@ gnome-shell
 gnome-shell-extensions
 gnome-software
 gnome-system-monitor
-#gnome-themes-extra
 gnome-tweaks
 gnome-user-share
-#gnome-video-effects
 gnu-free-fonts
-#grilo-plugins
 gtk-engine-murrine
-#gtk-theme-elementary
 gtkspell3
 #gvfs
 #gvfs-afc
@@ -120,23 +116,17 @@ gtkspell3
 mutter
 networkmanager
 orca
-#pantheon-applications-menu
 pantheon-calculator
 pantheon-calendar
-#pantheon-camera
 pantheon-code
-#pantheon-dpms-helper
 pantheon-files
-#pantheon-geoclue2-agent
 pantheon-music
 pantheon-photos
-#pantheon-polkit-agent
 pantheon-print
 pantheon-screenshot
 pantheon-shortcut-overlay
 pantheon-terminal
 pantheon-videos
-plank
 pulseaudio-bluetooth
 rygel
 #simple-scan
@@ -156,28 +146,37 @@ xdg-user-dirs-gtk
 # Utilities
 archlinux-appstream-data
 flatpak
-fractal
 geary
 gnome-software-packagekit-plugin
 pacman-contrib
+pidgin
+pidgin-libnotify
+purple-facebook
+libpurple-lurch
+pidgin-kwallet
+pidgin-otr
+purple-skypeweb
 
 ## VirtualBox
 virtualbox-guest-utils
 
 ## AUR
 clipped-git
-elementary-wallpapers-git
 gnome-shell-extension-dash-to-dock
 ideogram-git
-#pantheon-default-settings
 pantheon-screencast
-#pantheon-session-git
-#switchboard-plug-elementary-tweaks-git
 ttf-raleway
 whitesur-cursor-theme-git
 whitesur-gtk-theme-git
 whitesur-icon-theme-git
 yay
+telegram-purple
+slack-libpurple-git
+pidgin-sipe
+libpurple-meanwhile
+purple-icyque-git
+purple-hangouts-git
+purple-discord-git
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin

@@ -52,8 +52,7 @@ mv /usr/share/gtk-3.0/settings.ini.cards /usr/share/gtk-3.0/settings.ini
 
 gsettings set org.gnome.desktop.wm.preferences button-layout ‘:minimize,maximize,close’ # Set GNOME titlebar buttons
 chmod -R 777 /usr/share/gnome-shell/extensions/ # Ensure extensions do not experience permissions errors
-cp /usr/share/backgrounds/* /usr/share/backgrounds/gnome/ # Make elementary-backgrounds available in GNOME settings
-
+#cp /usr/share/backgrounds/* /usr/share/backgrounds/gnome/ # Make elementary-backgrounds available in GNOME settings
 
 # Enable task completion notifications for pantheon-terminal
 tee -a /etc/zsh/zshrc > /dev/null <<EOT

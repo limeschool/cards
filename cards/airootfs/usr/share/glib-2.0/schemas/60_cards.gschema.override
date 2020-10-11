@@ -9,10 +9,15 @@ gtk-theme="WhiteSur-dark"
 icon-theme='WhiteSur-dark'
 cursor-theme='WhiteSur-cursors'
 
+[org.gnome.desktop.sound]
+theme-name='elementary'
+
 [org.gnome.shell]
 enabled-extensions="['dash-to-dock@micxgx.gmail.com']"
+favorite-apps="['org.gnome.Epiphany.desktop', 'io.elementary.files.desktop', 'org.gnome.Software.desktop', 'io.elementary.music.desktop', 'org.gnome.Cheese.desktop', 'io.elementary.photos.desktop', 'im.dino.Dino.desktop', 'gnome-control-center.desktop']"
 
 [org.gnome.shell.extensions.dash-to-dock]
 dock-position=BOTTOM
 autohide=true
 apply-custom-theme=true
+multi-monitor=true

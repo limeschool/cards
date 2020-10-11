@@ -95,7 +95,7 @@ gnome-shell
 gnome-shell-extensions
 gnome-software
 gnome-system-monitor
-gnome-tweaks
+#gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
@@ -138,11 +138,11 @@ xdg-user-dirs-gtk
 
 # Utilities
 archlinux-appstream-data
+dino
 flatpak
 geary
 gnome-software-packagekit-plugin
 pacman-contrib
-dino
 
 ## VirtualBox
 virtualbox-guest-utils

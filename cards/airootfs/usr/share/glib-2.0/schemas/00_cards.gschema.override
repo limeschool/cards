@@ -11,6 +11,9 @@ cursor-theme='WhiteSur-cursors'
 clock-show-weekday=true
 show-battery-percentage=true
 
+[org.gnome.desktop.background]
+picture-uri=file:////usr/share/backgrounds/VNC.png
+
 [org.gnome.desktop.sound]
 theme-name='elementary'
 

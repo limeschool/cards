@@ -134,7 +134,7 @@ pantheon-photos
 pantheon-print
 pantheon-screenshot
 pantheon-shortcut-overlay
-#pantheon-terminal
+pantheon-terminal
 pantheon-videos
 plank
 pulseaudio-bluetooth
@@ -149,6 +149,7 @@ ttf-dejavu
 ttf-droid
 ttf-liberation
 ttf-opensans
+ttf-roboto-mono
 vala
 xdg-user-dirs-gtk
 
@@ -168,10 +169,10 @@ clipped-git
 elementary-wallpapers-git
 gnome-shell-extension-dash-to-dock
 ideogram-git
-pantheon-default-settings
+#pantheon-default-settings
 pantheon-screencast
-pantheon-session-git
-switchboard-plug-elementary-tweaks-git
+#pantheon-session-git
+#switchboard-plug-elementary-tweaks-git
 ttf-raleway
 whitesur-cursor-theme-git
 whitesur-gtk-theme-git
@@ -180,7 +181,6 @@ yay
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
-cp ${PROFILE}/airootfs/usr/share/backgrounds/* ${PROFILE}/airootfs/usr/share/backgrounds/gnome/ # Make elementary-backgrounds available in GNOME settings
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants

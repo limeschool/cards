@@ -41,3 +41,4 @@ Encoding=UTF-8
 Icon=xterm-color_48x48
 Categories=System;TerminalEmulator;
 Keywords=shell;prompt;command;commandline;cmd;
+NoDisplay=true

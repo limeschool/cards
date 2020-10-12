@@ -38,7 +38,6 @@ ttf-raleway \
 gnome-doc-utils \
 libhandy1 \
 pantheon-screencast \
-clipped-git \
 yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
@@ -150,7 +149,6 @@ pacman-contrib
 virtualbox-guest-utils
 
 ## AUR
-clipped-git
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
 pantheon-screencast

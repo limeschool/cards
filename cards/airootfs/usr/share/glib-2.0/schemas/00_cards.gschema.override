@@ -9,6 +9,7 @@ gtk-theme='WhiteSur-dark'
 icon-theme='WhiteSur-dark'
 cursor-theme='WhiteSur-cursors'
 clock-show-weekday=true
+clock-format='12h'
 show-battery-percentage=true
 
 [org.gnome.desktop.background]
@@ -26,3 +27,6 @@ dock-position='BOTTOM'
 autohide=true
 apply-custom-theme=true
 multi-monitor=true
+
+[org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/]
+name='Utilities'

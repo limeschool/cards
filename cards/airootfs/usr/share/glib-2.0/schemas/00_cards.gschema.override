@@ -27,6 +27,7 @@ dock-position='BOTTOM'
 autohide=true
 apply-custom-theme=true
 multi-monitor=true
+show-trash=false
 
 [org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/]
 name='Utilities'

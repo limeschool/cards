@@ -11,50 +11,62 @@ locale-gen
 
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 
-# Remove unwanted app entries
-rm -f /usr/share/applications/avahi-discover.desktop
-rm -f /usr/share/applications/gda-browser-5.0.desktop
-rm -f /usr/share/applications/gda-control-center-5.0.desktop
-rm -f /usr/share/applications/lftp.desktop
-rm -f /usr/share/applications/lstopo.desktop
-rm -f /usr/share/applications/onboard-settings.desktop
-rm -f /usr/share/applications/onboard.desktop
-rm -f /usr/share/applications/qv4l2.desktop
-rm -f /usr/share/applications/qvidcap.desktop
-rm -f /usr/share/applications/stoken-gui-small.desktop
-rm -f /usr/share/applications/stoken-gui.desktop
-rm -f /usr/share/applications/uxterm.desktop
-rm -f /usr/share/applications/vim.desktop
-rm -f /usr/share/applications/bssh.desktop
-rm -f /usr/share/applications/bvnc.desktop
-rm -f /usr/share/applications/cups.desktop
-rm -f /usr/share/applications/xterm.desktop
-rm -f /usr/share/applications/org.gnome.Extensions.desktop
-mv /usr/share/applications/org.gnome.Characters.desktop /usr/share/applications/gucharmap.desktop
-
-# Genericize app entries
-rm -f /usr/share/applications/com.github.cassidyjames.ideogram.desktop
-rm -f /usr/share/applications/com.github.davidmhewitt.clipped.desktop
-rm -f /usr/share/applications/geary-autostart.desktop
-rm -f /usr/share/applications/org.gnome.Cheese.desktop
-rm -f /usr/share/applications/org.gnome.Geary.desktop
-rm -f /usr/share/applications/im.dino.Dino.desktop
-mv /usr/share/applications/com.github.cassidyjames.ideogram.desktop.cards /usr/share/applications/com.github.cassidyjames.ideogram.desktop
-mv /usr/share/applications/com.github.davidmhewitt.clipped.desktop.cards /usr/share/applications/com.github.davidmhewitt.clipped.desktop
-mv /usr/share/applications/geary-autostart.desktop.cards /usr/share/applications/geary-autostart.desktop
-mv /usr/share/applications/org.gnome.Cheese.desktop.cards /usr/share/applications/org.gnome.Cheese.desktop
-mv /usr/share/applications/org.gnome.Geary.desktop.cards /usr/share/applications/org.gnome.Geary.desktop
-mv /usr/share/applications/im.dino.Dino.desktop.cards /usr/share/applications/im.dino.Dino.desktop
+# Hide unwanted app entries
+tee -a /usr/share/applications/avahi-discover.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/gda-browser-5.0.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/gda-control-center-5.0.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/lstopo.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/onboard-settings.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/onboard.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/qv4l2.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/qvidcap.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/stoken-gui-small.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/stoken-gui.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/uxterm.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/vim.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/bssh.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/bvnc.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/cups.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/xterm.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
+tee -a /usr/share/applications/org.gnome.Extensions.desktop > /dev/null <<EOT
+NoDisplay=true
+EOT
 
 # Remove unwanted session entries
 rm -f /usr/share/xsessions/gnome-classic.desktop
 rm -f /usr/share/xsessions/gnome-xorg.desktop
-
-# Replace GTK settings files
-rm -f /usr/share/gtk-2.0/gtkrc
-rm -f /usr/share/gtk-3.0/settings.ini
-mv /usr/share/gtk-2.0/gtkrc.cards /usr/share/gtk-2.0/gtkrc
-mv /usr/share/gtk-3.0/settings.ini.cards /usr/share/gtk-3.0/settings.ini
 
 chmod -R 777 /usr/share/gnome-shell/extensions/ # Ensure extensions do not experience permissions errors
 glib-compile-schemas /usr/share/glib-2.0/schemas/ # Compile w/ Cards' gschema.override

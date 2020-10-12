@@ -44,7 +44,9 @@ yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
 whitesur-cursor-theme-git \
-gnome-shell-extension-dash-to-dock"
+gnome-shell-extension-dash-to-dock \
+gnome-shell-extension-emoji-selector-git \
+ttf-twemoji-color"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -88,6 +90,7 @@ epiphany
 file-roller
 gdm
 gnome-backgrounds
+gnome-characters
 gnome-control-center
 gnome-disk-utility
 gnome-keyring
@@ -149,9 +152,11 @@ virtualbox-guest-utils
 ## AUR
 clipped-git
 gnome-shell-extension-dash-to-dock
+gnome-shell-extension-emoji-selector-git
 ideogram-git
 pantheon-screencast
 ttf-raleway
+ttf-twemoji-color
 whitesur-cursor-theme-git
 whitesur-gtk-theme-git
 whitesur-icon-theme-git

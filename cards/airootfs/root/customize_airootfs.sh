@@ -30,6 +30,7 @@ rm -f /usr/share/applications/bvnc.desktop
 rm -f /usr/share/applications/cups.desktop
 rm -f /usr/share/applications/xterm.desktop
 rm -f /usr/share/applications/org.gnome.Extensions.desktop
+mv /usr/share/applications/org.gnome.Characters.desktop /usr/share/applications/gucharmap.desktop
 
 # Genericize app entries
 rm -f /usr/share/applications/com.github.cassidyjames.ideogram.desktop

@@ -100,12 +100,12 @@ gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
 gtkspell3
-#gvfs
-#gvfs-afc
-#gvfs-gphoto2
-#gvfs-mtp
-#gvfs-nfs
-#gvfs-smb
+gvfs
+gvfs-afc
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
 mutter
 networkmanager
 orca
@@ -122,7 +122,6 @@ pantheon-terminal
 pantheon-videos
 pulseaudio-bluetooth
 rygel
-#simple-scan
 sound-theme-elementary
 tracker
 tracker-miners

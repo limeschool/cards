@@ -11,59 +11,6 @@ locale-gen
 
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 
-# Hide unwanted app entries
-tee -a /usr/share/applications/avahi-discover.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/gda-browser-5.0.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/gda-control-center-5.0.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/lstopo.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/onboard-settings.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/onboard.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/qv4l2.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/qvidcap.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/stoken-gui-small.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/stoken-gui.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/uxterm.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/vim.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/bssh.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/bvnc.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/cups.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/xterm.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-tee -a /usr/share/applications/org.gnome.Extensions.desktop > /dev/null <<EOT
-NoDisplay=true
-EOT
-
 # Remove unwanted session entries
 rm -f /usr/share/xsessions/gnome-classic.desktop
 rm -f /usr/share/xsessions/gnome-xorg.desktop

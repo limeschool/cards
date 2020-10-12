@@ -39,7 +39,6 @@ gnome-doc-utils \
 libhandy1 \
 pantheon-screencast \
 clipped-git \
-ideogram-git \
 yay \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
@@ -62,6 +61,7 @@ libva
 libva-mesa-driver
 mesa
 noto-fonts
+noto-fonts-emoji
 nvidia-dkms
 qt5-svg
 qt5-translations
@@ -153,7 +153,6 @@ virtualbox-guest-utils
 clipped-git
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
-ideogram-git
 pantheon-screencast
 ttf-raleway
 ttf-twemoji-color

@@ -58,8 +58,7 @@ pantheon-terminal-git \
 pantheon-videos-git \
 csview \
 dust \
-bottom \
-ox-git"
+bottom"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -179,7 +178,6 @@ exa
 fd
 hyperfine
 mdcat
-ox-git #AUR
 ripgrep
 sd
 tokei

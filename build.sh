@@ -57,7 +57,6 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 procs \
-teip \
 csview \
 dust \
 bottom \
@@ -187,7 +186,6 @@ procs #AUR
 ripgrep
 sd
 tealdeer #AUR
-teip #AUR
 tokei
 
 ## VirtualBox

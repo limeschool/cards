@@ -72,7 +72,7 @@ contractor
 cups
 cups-pk-helper
 dino
-elementary-icon-theme-git #AUR
+elementary-icon-theme-git
 epiphany
 file-roller
 flatpak
@@ -85,8 +85,8 @@ gnome-control-center
 gnome-disk-utility
 gnome-keyring
 gnome-shell
-gnome-shell-extension-dash-to-dock #AUR
-gnome-shell-extension-emoji-selector-git #AUR
+gnome-shell-extension-dash-to-dock
+gnome-shell-extension-emoji-selector-git
 gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin
@@ -95,7 +95,7 @@ gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
-gtk-theme-elementary-git #AUR
+gtk-theme-elementary-git
 gtkspell3
 gvfs
 gvfs-afc
@@ -115,17 +115,17 @@ noto-fonts-emoji
 nvidia-dkms
 orca
 pacman-contrib
-pantheon-calculator-git #AUR
-pantheon-calendar-git #AUR
+pantheon-calculator-git
+pantheon-calendar-git
 pantheon-code
-pantheon-files-git #AUR
-pantheon-music-git #AUR
-pantheon-photos-git #AUR
+pantheon-files-git
+pantheon-music-git
+pantheon-photos-git
 pantheon-print
-pantheon-screencast #AUR
-pantheon-screenshot-git #AUR
-pantheon-terminal-git #AUR
-pantheon-videos-git #AUR
+pantheon-screencast
+pantheon-screenshot-git
+pantheon-terminal-git
+pantheon-videos-git
 pulseaudio-bluetooth
 qt5-svg
 qt5-translations
@@ -141,16 +141,16 @@ ttf-droid
 ttf-hack
 ttf-liberation
 ttf-opensans
-ttf-raleway #AUR
+ttf-raleway
 ttf-roboto-mono
-ttf-twemoji-color #AUR
+ttf-twemoji-color
 vala
 vulkan-radeon
 wayland
 wayland-protocols
-whitesur-cursor-theme-git #AUR
-whitesur-gtk-theme-git #AUR
-whitesur-icon-theme-git #AUR
+whitesur-cursor-theme-git
+whitesur-gtk-theme-git
+whitesur-icon-theme-git
 wlc
 xdg-user-dirs-gtk
 xf86-input-libinput
@@ -162,7 +162,7 @@ xorg-twm
 xorg-xclock
 xorg-xinit
 xterm
-yay #AUR
+yay
 
 ## Rust utilities
 alacritty

@@ -56,7 +56,6 @@ pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
-uutils-coreutils-git \
 procs \
 teip \
 csview \

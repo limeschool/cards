@@ -190,7 +190,6 @@ sd
 tealdeer #AUR
 teip #AUR
 tokei
-uutils-coreutils-git #AUR
 
 ## VirtualBox
 virtualbox-guest-utils

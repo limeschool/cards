@@ -7,7 +7,8 @@ umask 0022 # Correct file permissions
 systemd-machine-id-setup # Prevents errors when building AUR packages
 
 pacman -Syu archiso git base-devel jq expac diffstat pacutils wget devtools libxslt cmake \
-intltool gtk-doc gobject-introspection gnome-common polkit dbus-glib --noconfirm --noprogressbar # Install packages we'll need to build
+intltool gtk-doc gobject-introspection gnome-common polkit dbus-glib libhandy \
+meson vala gnome-settings-daemon --noconfirm --noprogressbar # Install packages we'll need to build
 
 # Allow us to use a standard user account w/ password-less sudo privilege (for building AUR packages later)
 tee -a /etc/sudoers > /dev/null <<EOT
@@ -44,7 +45,25 @@ whitesur-icon-theme-git \
 whitesur-cursor-theme-git \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
-ttf-twemoji-color"
+ttf-twemoji-color \
+gtk-theme-elementary-git \
+elementary-icon-theme-git \
+pantheon-calculator-git \
+pantheon-calendar-git \
+pantheon-files-git \
+pantheon-music-git \
+pantheon-photos-git \
+pantheon-screenshot-git \
+pantheon-terminal-git \
+pantheon-videos-git \
+uutils-coreutils-git \
+procs \
+teip \
+csview \
+dust \
+bottom \
+tealdeer \
+ox-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -52,24 +71,96 @@ echo "---"
 
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
-## Display & drivers
+## Cards default packages
+archlinux-appstream-data
+bluez
+bluez-utils
+capnet-assist
+contractor
+cups
+cups-pk-helper
+dino
+elementary-icon-theme-git #AUR
+epiphany
+file-roller
+flatpak
+gdm
+geary
 glfw-wayland
+gnome-backgrounds
+gnome-characters
+gnome-control-center
+gnome-disk-utility
+gnome-keyring
+gnome-shell
+gnome-shell-extension-dash-to-dock #AUR
+gnome-shell-extension-emoji-selector-git #AUR
+gnome-shell-extensions
+gnome-software
+gnome-software-packagekit-plugin
+gnome-system-monitor
+gnome-tweaks
+gnome-user-share
+gnu-free-fonts
+gtk-engine-murrine
+gtk-theme-elementary-git #AUR
+gtkspell3
+gvfs
+gvfs-afc
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
 intel-tbb
 intel-ucode
 libva
 libva-mesa-driver
 mesa
+mutter
+networkmanager
 noto-fonts
 noto-fonts-emoji
 nvidia-dkms
+orca
+pacman-contrib
+pantheon-calculator-git #AUR
+pantheon-calendar-git #AUR
+pantheon-code
+pantheon-files-git #AUR
+pantheon-music-git #AUR
+pantheon-photos-git #AUR
+pantheon-print
+pantheon-screencast #AUR
+pantheon-screenshot-git #AUR
+pantheon-terminal-git #AUR
+pantheon-videos-git #AUR
+pulseaudio-bluetooth
 qt5-svg
 qt5-translations
 qt5-wayland
+rygel
+sound-theme-elementary
+tracker
+tracker-miners
+tracker3
+tracker3-miners
+ttf-dejavu
+ttf-droid
 ttf-hack
+ttf-liberation
+ttf-opensans
+ttf-raleway #AUR
+ttf-roboto-mono
+ttf-twemoji-color #AUR
+vala
 vulkan-radeon
 wayland
 wayland-protocols
+whitesur-cursor-theme-git #AUR
+whitesur-gtk-theme-git #AUR
+whitesur-icon-theme-git #AUR
 wlc
+xdg-user-dirs-gtk
 xf86-input-libinput
 xorg
 xorg-drivers
@@ -79,100 +170,47 @@ xorg-twm
 xorg-xclock
 xorg-xinit
 xterm
+yay #AUR
 
-## Desktop Environment
-capnet-assist
-contractor
-cups
-cups-pk-helper
-epiphany
-file-roller
-gdm
-gnome-backgrounds
-gnome-characters
-gnome-control-center
-gnome-disk-utility
-gnome-keyring
-gnome-shell
-gnome-shell-extensions
-gnome-software
-gnome-system-monitor
-#gnome-tweaks
-gnome-user-share
-gnu-free-fonts
-gtk-engine-murrine
-gtkspell3
-gvfs
-gvfs-afc
-gvfs-gphoto2
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
-mutter
-networkmanager
-orca
-pantheon-calculator
-pantheon-calendar
-pantheon-code
-pantheon-files
-pantheon-music
-pantheon-photos
-pantheon-print
-pantheon-screenshot
-pantheon-shortcut-overlay
-pantheon-terminal
-pantheon-videos
-pulseaudio-bluetooth
-rygel
-sound-theme-elementary
-tracker
-tracker-miners
-tracker3
-tracker3-miners
-ttf-dejavu
-ttf-droid
-ttf-liberation
-ttf-opensans
-ttf-roboto-mono
-vala
-xdg-user-dirs-gtk
-
-# Utilities
-archlinux-appstream-data
-dino
-flatpak
-geary
-gnome-software-packagekit-plugin
-pacman-contrib
+## Rust utilities
+alacritty
+bandwhich
+bat
+bottom #AUR
+csview #AUR
+dust #AUR
+exa
+fd
+hyperfine
+mdcat
+ox-git #AUR
+procs #AUR
+ripgrep
+sd
+tealdeer #AUR
+teip #AUR
+tokei
+uutils-coreutils-git #AUR
 
 ## VirtualBox
 virtualbox-guest-utils
-
-## AUR
-gnome-shell-extension-dash-to-dock
-gnome-shell-extension-emoji-selector-git
-pantheon-screencast
-ttf-raleway
-ttf-twemoji-color
-whitesur-cursor-theme-git
-whitesur-gtk-theme-git
-whitesur-icon-theme-git
-yay
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 
 # Enable our daemons
-mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
-mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
-mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d
-ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/printer.target.wants
+mkdir -p ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
 ln -s /lib/systemd/system/NetworkManager.service ${PROFILE}/airootfs/etc/systemd/system/multi-user.target.wants
-ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/avahi-daemon.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/system/bluetooth.target.wants
-ln -s /lib/modules-load.d/virtualbox-guest-dkms.conf ${PROFILE}/airootfs/etc/modules-load.d
+ln -s /lib/systemd/system/cups.service ${PROFILE}/airootfs/etc/systemd/system/printer.target.wants
+ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
+ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 
 # Build & bundle the disk image
 mkdir ./out

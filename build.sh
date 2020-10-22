@@ -60,7 +60,6 @@ procs \
 csview \
 dust \
 bottom \
-tealdeer \
 ox-git"
 
 echo -e "LOCAL_REPO:\n---"
@@ -185,7 +184,6 @@ ox-git #AUR
 procs #AUR
 ripgrep
 sd
-tealdeer #AUR
 tokei
 
 ## VirtualBox

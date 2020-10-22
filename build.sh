@@ -55,8 +55,7 @@ pantheon-music-git \
 pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
-pantheon-videos-git \
-bottom"
+pantheon-videos-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -169,7 +168,6 @@ yay #AUR
 alacritty
 bandwhich
 bat
-bottom #AUR
 exa
 fd
 hyperfine

@@ -57,7 +57,6 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 csview \
-dust \
 bottom"
 
 echo -e "LOCAL_REPO:\n---"
@@ -173,7 +172,6 @@ bandwhich
 bat
 bottom #AUR
 csview #AUR
-dust #AUR
 exa
 fd
 hyperfine

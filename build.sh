@@ -56,7 +56,6 @@ pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
-procs \
 csview \
 dust \
 bottom \
@@ -181,7 +180,6 @@ fd
 hyperfine
 mdcat
 ox-git #AUR
-procs #AUR
 ripgrep
 sd
 tokei

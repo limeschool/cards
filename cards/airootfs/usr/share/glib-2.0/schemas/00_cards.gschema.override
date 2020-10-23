@@ -19,7 +19,7 @@ picture-uri='file:////usr/share/backgrounds/gnome/VNC.png'
 theme-name='elementary'
 
 [org.gnome.shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'hidetopbar@mathieu.bidon.ca']
 favorite-apps=['org.gnome.Epiphany.desktop', 'io.elementary.files.desktop', 'org.gnome.Software.desktop', 'io.elementary.music.desktop', 'org.gnome.Cheese.desktop', 'io.elementary.photos.desktop', 'im.dino.Dino.desktop', 'gnome-control-center.desktop']
 
 [org.gnome.shell.extensions.dash-to-dock]

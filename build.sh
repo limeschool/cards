@@ -40,11 +40,14 @@ gnome-doc-utils \
 libhandy1 \
 pantheon-screencast \
 yay \
+gdm-plymouth \
 whitesur-gtk-theme-git \
 whitesur-icon-theme-git \
 whitesur-cursor-theme-git \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
+gnome-shell-extension-clipboard-indicator \
+gnome-shell-extension-hidetopbar-git \
 ttf-twemoji-color \
 gtk-theme-elementary-git \
 elementary-icon-theme-git \
@@ -55,7 +58,9 @@ pantheon-music-git \
 pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
-pantheon-videos-git"
+pantheon-videos-git \
+grub-theme-vimix-git \
+plymouth-theme-colorful-sliced-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -63,8 +68,10 @@ echo "---"
 
 # Add packages from Arch's repositories to our profile
 tee -a ${PROFILE}/packages.x86_64 > /dev/null <<EOT
-## Cards default packages
+## System
 archlinux-appstream-data
+bandwhich
+bat
 bluez
 bluez-utils
 capnet-assist
@@ -74,9 +81,11 @@ cups-pk-helper
 dino
 elementary-icon-theme-git
 epiphany
+exa
+fd
 file-roller
 flatpak
-gdm
+gdm-plymouth
 geary
 glfw-wayland
 gnome-backgrounds
@@ -85,8 +94,10 @@ gnome-control-center
 gnome-disk-utility
 gnome-keyring
 gnome-shell
+gnome-shell-extension-clipboard-indicator
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
+gnome-shell-extension-hidetopbar-git
 gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin
@@ -103,15 +114,19 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+hyperfine
 intel-tbb
 intel-ucode
+inter-font
 libva
 libva-mesa-driver
+mdcat
 mesa
 mutter
 networkmanager
 noto-fonts
 noto-fonts-emoji
+nvidia
 nvidia-dkms
 orca
 pacman-contrib
@@ -130,8 +145,11 @@ pulseaudio-bluetooth
 qt5-svg
 qt5-translations
 qt5-wayland
+ripgrep
 rygel
+sd
 sound-theme-elementary
+tokei
 tracker
 tracker-miners
 tracker3
@@ -154,6 +172,12 @@ whitesur-icon-theme-git
 wlc
 xdg-user-dirs-gtk
 xf86-input-libinput
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-fbdev
+xf86-video-intel
+xf86-video-nouveau
+xf86-video-vesa
 xorg
 xorg-drivers
 xorg-server
@@ -164,19 +188,17 @@ xorg-xinit
 xterm
 yay
 
-## Rust utilities
-alacritty
-bandwhich
-bat
-exa
-fd
-hyperfine
-mdcat
-ripgrep
-sd
-tokei
+## Boot
+#plymouth-theme-cubes-git
+#plymouth-theme-green-blocks-git
+#plymouth-theme-lone-git
+#plymouth-theme-rings-git
+grub-theme-vimix-git
+plymouth-theme-colorful-sliced-git
 
 ## VirtualBox
+linux-headers
+virtualbox-guest-dkms
 virtualbox-guest-utils
 EOT
 
@@ -195,6 +217,10 @@ ln -s /lib/systemd/system/bluetooth.service ${PROFILE}/airootfs/etc/systemd/syst
 ln -s /lib/systemd/system/cups.service ${PROFILE}/airootfs/etc/systemd/system/printer.target.wants
 ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/sockets.target.wants
 ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
+
+# Set Plymouth theme
+ln -s  /usr/share/plymouth/themes/colorful_sliced/colorful_sliced.plymouth /etc/alternatives/default.plymouth
+ln -s  /etc/alternatives/default.plymouth /usr/share/plymouth/themes/default.plymouth
 
 # Build & bundle the disk image
 mkdir ./out

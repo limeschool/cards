@@ -30,6 +30,11 @@ repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
 sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 
+# Import free wallpapers
+git clone https://github.com/elementary/wallpapers.git
+mkdir -p ${PROFILE}/usr/share/backgrounds/gnome
+cp -rf ./wallpapers/backgrounds/. ${PROFILE}/usr/share/backgrounds/gnome
+
 # Add packages to our local repository (shared between host and profile)
 cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
@@ -43,7 +48,6 @@ yay \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
-gnome-shell-extension-clipboard-indicator \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
@@ -53,6 +57,15 @@ pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
+bookworm-git \
+elementary-planner-git \
+tuner \
+screenrecorder-git \
+proton-ide-git \
+reminduck \
+notejot \
+imageburner \
+tardis \
 grub-theme-vimix-git \
 plymouth-theme-colorful-sliced-git"
 
@@ -72,12 +85,11 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
-dino
 elementary-icon-theme-git
-epiphany
 exa
 fd
 file-roller
+firefox
 flatpak
 gdm-plymouth
 geary
@@ -88,14 +100,13 @@ gnome-control-center
 gnome-disk-utility
 gnome-keyring
 gnome-shell
-gnome-shell-extension-clipboard-indicator
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
 gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin
 gnome-system-monitor
-gnome-tweaks
+#gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
@@ -176,6 +187,19 @@ xorg-xclock
 xorg-xinit
 xterm
 yay
+notes-up
+spice-up
+bookworm-git
+elementary-planner-git
+bookworm-git
+elementary-planner-git
+tuner
+screenrecorder-git
+proton-ide-git
+reminduck
+notejot
+imageburner
+tardis
 
 ## Boot
 #plymouth-theme-cubes-git

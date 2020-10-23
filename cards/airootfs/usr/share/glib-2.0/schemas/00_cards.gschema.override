@@ -6,8 +6,9 @@ center-new-windows=true
 
 [org.gnome.desktop.interface]
 gtk-theme='Adwaita-dark'
-icon-theme='Elementary'
-cursor-theme='Elementary'
+icon-theme='elementary'
+cursor-theme='elementary'
+font-name='Inter 11'
 clock-show-weekday=true
 clock-format='12h'
 show-battery-percentage=true
@@ -19,7 +20,7 @@ picture-uri='file:////usr/share/backgrounds/gnome/VNC.png'
 theme-name='elementary'
 
 [org.gnome.shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com']
 favorite-apps=['org.gnome.Epiphany.desktop', 'io.elementary.files.desktop', 'org.gnome.Software.desktop', 'io.elementary.music.desktop', 'org.gnome.Cheese.desktop', 'io.elementary.photos.desktop', 'im.dino.Dino.desktop', 'gnome-control-center.desktop']
 
 [org.gnome.shell.extensions.dash-to-dock]

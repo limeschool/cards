@@ -36,7 +36,6 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 ttf-raleway \
-gnome-doc-utils \
 libhandy1 \
 pantheon-screencast \
 yay \
@@ -217,8 +216,10 @@ ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/soc
 ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 
 # Set Plymouth theme
-ln -s  /usr/share/plymouth/themes/colorful_sliced/colorful_sliced.plymouth /etc/alternatives/default.plymouth
-ln -s  /etc/alternatives/default.plymouth /usr/share/plymouth/themes/default.plymouth
+mkdir -p ${PROFILE}/airootfs/etc/alternatives
+mkdir -p ${PROFILE}/airootfs/usr/share/plymouth/themes
+ln -s  /usr/share/plymouth/themes/colorful_sliced/colorful_sliced.plymouth ${PROFILE}/airootfs/etc/alternatives/default.plymouth
+ln -s  /etc/alternatives/default.plymouth ${PROFILE}/airootfs/usr/share/plymouth/themes/default.plymouth
 
 # Build & bundle the disk image
 mkdir ./out

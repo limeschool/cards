@@ -158,9 +158,6 @@ vala
 vulkan-radeon
 wayland
 wayland-protocols
-whitesur-cursor-theme-git
-whitesur-gtk-theme-git
-whitesur-icon-theme-git
 wlc
 xdg-user-dirs-gtk
 xf86-input-libinput

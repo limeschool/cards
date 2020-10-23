@@ -5,9 +5,9 @@ button-layout=':close,maximize,minimize'
 center-new-windows=true
 
 [org.gnome.desktop.interface]
-gtk-theme='WhiteSur-dark'
-icon-theme='WhiteSur-dark'
-cursor-theme='WhiteSur-cursors'
+gtk-theme='Adwaita-dark'
+icon-theme='Elementary'
+cursor-theme='Elementary'
 clock-show-weekday=true
 clock-format='12h'
 show-battery-percentage=true

@@ -36,18 +36,14 @@ mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 ttf-raleway \
+ttf-twemoji-color \
 libhandy1 \
 pantheon-screencast \
 yay \
 gdm-plymouth \
-whitesur-gtk-theme-git \
-whitesur-icon-theme-git \
-whitesur-cursor-theme-git \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
 gnome-shell-extension-clipboard-indicator \
-ttf-twemoji-color \
-gtk-theme-elementary-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
@@ -103,7 +99,6 @@ gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
-gtk-theme-elementary-git
 gtkspell3
 gvfs
 gvfs-afc

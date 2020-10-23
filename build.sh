@@ -47,7 +47,6 @@ whitesur-cursor-theme-git \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
 gnome-shell-extension-clipboard-indicator \
-gnome-shell-extension-hidetopbar-git \
 ttf-twemoji-color \
 gtk-theme-elementary-git \
 elementary-icon-theme-git \
@@ -97,7 +96,6 @@ gnome-shell
 gnome-shell-extension-clipboard-indicator
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
-gnome-shell-extension-hidetopbar-git
 gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin

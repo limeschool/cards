@@ -51,7 +51,6 @@ gnome-shell-extension-emoji-selector-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
-pantheon-files-git \
 pantheon-music-git \
 pantheon-photos-git \
 pantheon-screenshot-git \
@@ -133,7 +132,7 @@ pacman-contrib
 pantheon-calculator-git
 pantheon-calendar-git
 pantheon-code
-pantheon-files-git
+pantheon-files
 pantheon-music-git
 pantheon-photos-git
 pantheon-print

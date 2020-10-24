@@ -59,7 +59,6 @@ pantheon-terminal-git \
 pantheon-videos-git \
 elementary-planner-git \
 screenrecorder-git \
-proton-ide-git \
 reminduck \
 notejot \
 imageburner \
@@ -187,7 +186,6 @@ xterm
 yay
 elementary-planner-git
 screenrecorder-git
-proton-ide-git
 reminduck
 notejot
 imageburner

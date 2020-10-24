@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mutter
+Comment=This session logs you into Mutter
+Exec=/usr/bin/mutter
+TryExec=/usr/bin/mutter
+Type=Application
+DesktopNames=Mutter
+X-GDM-SessionRegisters=true

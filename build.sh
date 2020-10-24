@@ -51,17 +51,12 @@ gnome-shell-extension-emoji-selector-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
+pantheon-files-git \
 pantheon-music-git \
 pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
-elementary-planner-git \
-screenrecorder-git \
-reminduck \
-notejot \
-imageburner \
-tardis \
 grub-theme-vimix-git \
 plymouth-theme-colorful-sliced-git"
 
@@ -81,11 +76,12 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
+dino
 elementary-icon-theme-git
+epiphany
 exa
 fd
 file-roller
-firefox
 flatpak
 gdm-plymouth
 geary
@@ -102,7 +98,7 @@ gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin
 gnome-system-monitor
-#gnome-tweaks
+gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
@@ -132,7 +128,7 @@ pacman-contrib
 pantheon-calculator-git
 pantheon-calendar-git
 pantheon-code
-pantheon-files
+pantheon-files-git
 pantheon-music-git
 pantheon-photos-git
 pantheon-print
@@ -183,12 +179,6 @@ xorg-xclock
 xorg-xinit
 xterm
 yay
-elementary-planner-git
-screenrecorder-git
-reminduck
-notejot
-imageburner
-tardis
 
 ## Boot
 #plymouth-theme-cubes-git

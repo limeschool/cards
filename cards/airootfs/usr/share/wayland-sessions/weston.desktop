@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Weston
+Comment=This session logs you into Weston
+Exec=/usr/bin/weston-session
+TryExec=/usr/bin/weston-session
+Type=Application
+DesktopNames=Weston
+X-GDM-SessionRegisters=true

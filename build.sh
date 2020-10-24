@@ -45,6 +45,8 @@ ttf-twemoji-color \
 libhandy1 \
 pantheon-screencast \
 yay \
+dashbinsh \
+ion-git \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
@@ -76,6 +78,8 @@ capnet-assist
 contractor
 cups
 cups-pk-helper
+dash
+dashbinsh
 dino
 elementary-icon-theme-git
 epiphany
@@ -113,6 +117,7 @@ hyperfine
 intel-tbb
 intel-ucode
 inter-font
+ion-git
 libva
 libva-mesa-driver
 mdcat
@@ -161,6 +166,7 @@ vala
 vulkan-radeon
 wayland
 wayland-protocols
+weston
 wlc
 xdg-user-dirs-gtk
 xf86-input-libinput
@@ -195,6 +201,8 @@ virtualbox-guest-utils
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
+chmod +x ${PROFILE}/airootfs/usr/bin/weston-session # Set weston-session as executable
+ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d

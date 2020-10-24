@@ -46,7 +46,6 @@ libhandy1 \
 pantheon-screencast \
 yay \
 dashbinsh \
-ion-git \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
@@ -117,7 +116,6 @@ hyperfine
 intel-tbb
 intel-ucode
 inter-font
-ion-git
 libva
 libva-mesa-driver
 mdcat

@@ -57,9 +57,7 @@ pantheon-photos-git \
 pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
-bookworm-git \
 elementary-planner-git \
-tuner \
 screenrecorder-git \
 proton-ide-git \
 reminduck \
@@ -187,13 +185,7 @@ xorg-xclock
 xorg-xinit
 xterm
 yay
-notes-up
-spice-up
-bookworm-git
 elementary-planner-git
-bookworm-git
-elementary-planner-git
-tuner
 screenrecorder-git
 proton-ide-git
 reminduck

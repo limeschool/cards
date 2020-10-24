@@ -199,8 +199,8 @@ virtualbox-guest-utils
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
-chmod +x ${PROFILE}/airootfs/usr/bin/weston-session # Set weston-session as executable
-ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
+chmod +x ${PROFILE}/airootfs/usr/bin/marine # Set weston-session as executable
+#ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d

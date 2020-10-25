@@ -38,7 +38,6 @@ su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --
 ttf-raleway \
 ttf-twemoji-color \
 libhandy1 \
-pantheon-screencast \
 yay \
 dashbinsh \
 gdm-plymouth \
@@ -130,7 +129,6 @@ pantheon-files-git
 pantheon-music-git
 pantheon-photos-git
 pantheon-print
-pantheon-screencast
 pantheon-screenshot-git
 pantheon-terminal-git
 pantheon-videos-git

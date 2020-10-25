@@ -226,4 +226,4 @@ ln -s  /etc/alternatives/default.plymouth ${PROFILE}/airootfs/usr/share/plymouth
 mkdir ./out
 mkdir /tmp/archiso-tmp
 mkarchiso -v -w /tmp/archiso-tmp ${PROFILE}
-mv ./out/cards-*.*.*-x86_64.iso ~
+cp ./out/cards-*.*.*-x86_64.iso ~

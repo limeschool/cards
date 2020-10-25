@@ -30,11 +30,6 @@ repo-add ${LOCAL_REPO}/custom.db.tar.xz
 chmod -R 777 ${LOCAL_REPO}
 sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 
-# Import free wallpapers
-git clone https://github.com/elementary/wallpapers.git
-mkdir -p ${PROFILE}/usr/share/backgrounds/gnome
-cp -rf ./wallpapers/backgrounds/. ${PROFILE}/usr/share/backgrounds/gnome
-
 # Add packages to our local repository (shared between host and profile)
 cp -f ${PROFILE}/pacman.conf /etc
 mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
@@ -201,6 +196,11 @@ EOT
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 chmod +x ${PROFILE}/airootfs/usr/bin/marine # Set weston-session as executable
 #ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
+
+# Import public domain wallpapers
+git clone https://github.com/elementary/wallpapers.git
+mkdir -p ${PROFILE}/usr/share/backgrounds/gnome
+cp -rf ./wallpapers/backgrounds/* ${PROFILE}/usr/share/backgrounds/gnome
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d

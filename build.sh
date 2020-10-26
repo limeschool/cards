@@ -198,7 +198,7 @@ chmod +x ${PROFILE}/airootfs/usr/bin/marine # Set weston-session as executable
 # Import public domain wallpapers
 git clone https://github.com/elementary/wallpapers.git
 mkdir -p ${PROFILE}/usr/share/backgrounds/gnome
-cp -rf ./wallpapers/backgrounds/* ${PROFILE}/usr/share/backgrounds/gnome
+cp -avr ./wallpapers/backgrounds/. ${PROFILE}/usr/share/backgrounds/gnome
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d

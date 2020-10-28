@@ -53,7 +53,8 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 grub-theme-vimix-git \
-plymouth-theme-colorful-sliced-git"
+plymouth-theme-colorful-sliced-git \
+nwg-launchers"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -120,6 +121,7 @@ noto-fonts
 noto-fonts-emoji
 nvidia
 nvidia-dkms
+nwg-launchers
 orca
 pacman-contrib
 pantheon-calculator-git

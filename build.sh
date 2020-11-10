@@ -39,6 +39,7 @@ ttf-raleway \
 ttf-twemoji-color \
 libhandy1 \
 paru \
+pamac-aur \
 dashbinsh \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
@@ -123,6 +124,7 @@ nvidia
 nvidia-dkms
 orca
 pacman-contrib
+pamac-aur
 pantheon-calculator-git
 pantheon-calendar-git
 pantheon-code

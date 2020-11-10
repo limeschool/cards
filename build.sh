@@ -18,6 +18,7 @@ EOT
 # Install aurutils to build our local repository from AUR packages
 mkdir -p //.local/share/aurutils/view/ && chmod -R 777 //.local/share/aurutils/
 mkdir -p //.config/aurutils/sync/ && chmod -R 777 //.config/aurutils/
+mkdir -p /.cargo && chmod -R 777 ./cargo
 git clone https://aur.archlinux.org/aurutils.git
 chmod 777 aurutils
 cd aurutils

@@ -5,13 +5,15 @@ button-layout=':close,maximize,minimize'
 center-new-windows=true
 
 [org.gnome.desktop.interface]
-gtk-theme='Adwaita-dark'
+gtk-theme='io.elementary.stylesheet.strawberry'
 icon-theme='elementary'
 cursor-theme='elementary'
 font-name='Inter 11'
+document-font-name='Inter 11'
 clock-show-weekday=true
 clock-format='12h'
 show-battery-percentage=true
+locate-pointer=true
 
 [org.gnome.desktop.background]
 picture-uri='file:////usr/share/backgrounds/gnome/VNC.png'
@@ -20,15 +22,23 @@ picture-uri='file:////usr/share/backgrounds/gnome/VNC.png'
 theme-name='elementary'
 
 [org.gnome.shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'pamac-updates@manjaro.org', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=['org.gnome.Epiphany.desktop', 'io.elementary.files.desktop', 'org.gnome.Software.desktop', 'io.elementary.music.desktop', 'org.gnome.Cheese.desktop', 'io.elementary.photos.desktop', 'im.dino.Dino.desktop', 'gnome-control-center.desktop']
+
+[org.gnome.settings-daemon.plugins.xsettings]
+hinting='slight'
+
+[org.gnome.settings-daemon.plugins.color]
+night-light-enabled=true
 
 [org.gnome.shell.extensions.dash-to-dock]
 dock-position='BOTTOM'
+dock-fixed=false
 autohide=true
+intellihide=true
 apply-custom-theme=true
 multi-monitor=true
-show-trash=false
+show-trash=true
 
 [org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/]
 name="Utilities"

@@ -32,7 +32,7 @@ sed -i -e "s?~/local-repo?${LOCAL_REPO}?" ${PROFILE}/pacman.conf
 
 # Add packages to our local repository (shared between host and profile)
 cp -f ${PROFILE}/pacman.conf /etc
-sudo mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
+mkdir //.cache && chmod 777 //.cache # Since we can't run 'aur sync' as sudo, we have to make the cache directory manually
 pacman -Rdd gsettings-desktop-schemas
 su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --noview \
 ttf-raleway \
@@ -53,8 +53,7 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 grub-theme-vimix-git \
-plymouth-theme-colorful-sliced-git \
-nwg-launchers"
+plymouth-theme-colorful-sliced-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -121,7 +120,6 @@ noto-fonts
 noto-fonts-emoji
 nvidia
 nvidia-dkms
-nwg-launchers
 orca
 pacman-contrib
 pantheon-calculator-git

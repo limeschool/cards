@@ -38,11 +38,12 @@ su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --
 ttf-raleway \
 ttf-twemoji-color \
 libhandy1 \
-yay \
+paru \
 dashbinsh \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
+gtk-theme-elementary-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
@@ -53,7 +54,7 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 grub-theme-vimix-git \
-plymouth-theme-colorful-sliced-git"
+plymouth-theme-green-blocks-git"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}
@@ -73,7 +74,6 @@ cups
 cups-pk-helper
 dash
 dashbinsh
-dino
 elementary-icon-theme-git
 epiphany
 exa
@@ -99,6 +99,7 @@ gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
+gtk-theme-elementary-git
 gtkspell3
 gvfs
 gvfs-afc
@@ -132,6 +133,7 @@ pantheon-print
 pantheon-screenshot-git
 pantheon-terminal-git
 pantheon-videos-git
+paru
 pulseaudio-bluetooth
 qt5-svg
 qt5-translations
@@ -175,15 +177,14 @@ xorg-twm
 xorg-xclock
 xorg-xinit
 xterm
-yay
 
 ## Boot
 #plymouth-theme-cubes-git
-#plymouth-theme-green-blocks-git
+plymouth-theme-green-blocks-git
 #plymouth-theme-lone-git
 #plymouth-theme-rings-git
 grub-theme-vimix-git
-plymouth-theme-colorful-sliced-git
+#plymouth-theme-colorful-sliced-git
 
 ## VirtualBox
 linux-headers

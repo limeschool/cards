@@ -138,7 +138,6 @@ pantheon-print
 pantheon-screenshot-git
 pantheon-terminal-git
 pantheon-videos-git
-paru
 pulseaudio-bluetooth
 qt5-svg
 qt5-translations
@@ -182,6 +181,7 @@ xorg-twm
 xorg-xclock
 xorg-xinit
 xterm
+yay
 
 ## Boot
 #plymouth-theme-cubes-git

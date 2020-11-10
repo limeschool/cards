@@ -16,7 +16,7 @@ nobody    ALL=(ALL) NOPASSWD:ALL
 EOT
 
 # Install aurutils to build our local repository from AUR packages
-mkdir //.local
+mkdir -p //.local/share/
 git clone https://aur.archlinux.org/aurutils.git
 chmod 777 aurutils
 cd aurutils

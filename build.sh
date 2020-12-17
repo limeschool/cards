@@ -41,7 +41,6 @@ su -s /bin/sh nobody -c "aur sync -d custom --root ${LOCAL_REPO} --no-confirm --
 ttf-raleway \
 ttf-twemoji-color \
 libhandy1 \
-paru \
 pamac-aur \
 dashbinsh \
 gdm-plymouth \
@@ -58,7 +57,8 @@ pantheon-screenshot-git \
 pantheon-terminal-git \
 pantheon-videos-git \
 grub-theme-vimix-git \
-plymouth-theme-green-blocks-git"
+plymouth-theme-green-blocks-git \
+yay"
 
 echo -e "LOCAL_REPO:\n---"
 ls ${LOCAL_REPO}

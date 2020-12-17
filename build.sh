@@ -50,7 +50,6 @@ gtk-theme-elementary-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 pantheon-calendar-git \
-pantheon-files-git \
 pantheon-music-git \
 pantheon-photos-git \
 pantheon-screenshot-git \
@@ -120,6 +119,7 @@ libva-mesa-driver
 mdcat
 mesa
 mutter
+nautilus
 networkmanager
 noto-fonts
 noto-fonts-emoji
@@ -131,7 +131,6 @@ pamac-aur
 pantheon-calculator-git
 pantheon-calendar-git
 pantheon-code
-pantheon-files-git
 pantheon-music-git
 pantheon-photos-git
 pantheon-print

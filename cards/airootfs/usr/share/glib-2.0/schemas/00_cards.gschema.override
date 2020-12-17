@@ -5,7 +5,7 @@ button-layout=':close,maximize,minimize'
 center-new-windows=true
 
 [org.gnome.desktop.interface]
-gtk-theme='io.elementary.stylesheet.strawberry'
+gtk-theme='Adwaita'
 icon-theme='elementary'
 cursor-theme='elementary'
 font-name='Inter 11'

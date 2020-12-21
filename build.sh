@@ -46,15 +46,9 @@ dashbinsh \
 gdm-plymouth \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
-gtk-theme-elementary-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
-pantheon-calendar-git \
-pantheon-music-git \
-pantheon-photos-git \
 pantheon-screenshot-git \
-pantheon-terminal-git \
-pantheon-videos-git \
 grub-theme-vimix-git \
 plymouth-theme-green-blocks-git \
 yay"
@@ -181,7 +175,6 @@ xterm
 yay
 gedit
 evince
-gnome-weather
 gnome-photos
 gnome-music
 gnome-maps
@@ -201,6 +194,15 @@ unoconv
 texlive-bin
 gst-plugins-ugly
 gst-libav
+gnome-podcasts
+gnome-music
+fractal
+gnome-notes
+gnome-dictionary
+gnome-games
+gnome-books
+deja-dup
+gnome-usage
 
 ## Boot
 #plymouth-theme-cubes-git

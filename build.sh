@@ -129,8 +129,6 @@ orca
 pacman-contrib
 pamac-aur
 pantheon-calculator-git
-pantheon-calendar-git
-pantheon-code
 pantheon-music-git
 pantheon-photos-git
 pantheon-print
@@ -181,6 +179,28 @@ xorg-xclock
 xorg-xinit
 xterm
 yay
+gedit
+evince
+gnome-weather
+gnome-photos
+gnome-music
+gnome-maps
+gnome-documents
+gnome-calendar
+gnome-contacts
+gnome-clocks
+gnome-font-viewer
+gnome-screenshot
+sushi
+gvfs-google
+gvfs-goa
+evolution
+libreoffice-fresh
+gedit-plugins
+unoconv
+texlive-bin
+gst-plugins-ugly
+gst-libav
 
 ## Boot
 #plymouth-theme-cubes-git

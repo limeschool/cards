@@ -48,7 +48,6 @@ gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
-pantheon-screenshot-git \
 grub-theme-vimix-git \
 plymouth-theme-green-blocks-git \
 yay"
@@ -96,7 +95,6 @@ gnome-tweaks
 gnome-user-share
 gnu-free-fonts
 gtk-engine-murrine
-gtk-theme-elementary-git
 gtkspell3
 gvfs
 gvfs-afc
@@ -123,12 +121,7 @@ orca
 pacman-contrib
 pamac-aur
 pantheon-calculator-git
-pantheon-music-git
-pantheon-photos-git
 pantheon-print
-pantheon-screenshot-git
-pantheon-terminal-git
-pantheon-videos-git
 pulseaudio-bluetooth
 qt5-svg
 qt5-translations
@@ -203,6 +196,7 @@ gnome-games
 gnome-books
 deja-dup
 gnome-usage
+gnome-screenshot
 
 ## Boot
 #plymouth-theme-cubes-git

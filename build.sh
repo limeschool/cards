@@ -49,7 +49,6 @@ gnome-shell-extension-emoji-selector-git \
 elementary-icon-theme-git \
 pantheon-calculator-git \
 grub-theme-vimix-git \
-plymouth-theme-green-blocks-git \
 yay"
 
 echo -e "LOCAL_REPO:\n---"
@@ -181,8 +180,6 @@ sushi
 gvfs-google
 gvfs-goa
 gedit-plugins
-unoconv
-texlive-bin
 gst-plugins-ugly
 gst-libav
 gnome-podcasts
@@ -196,12 +193,7 @@ gnome-usage
 gnome-screenshot
 
 ## Boot
-#plymouth-theme-cubes-git
-plymouth-theme-green-blocks-git
-#plymouth-theme-lone-git
-#plymouth-theme-rings-git
 grub-theme-vimix-git
-#plymouth-theme-colorful-sliced-git
 
 ## VirtualBox
 linux-headers
@@ -211,7 +203,7 @@ EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
 chmod +x ${PROFILE}/airootfs/usr/bin/marine # Set weston-session as executable
-#ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
+ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
 
 # Import public domain wallpapers
 git clone https://github.com/elementary/wallpapers.git

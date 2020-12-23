@@ -69,20 +69,40 @@ cups
 cups-pk-helper
 dash
 dashbinsh
+deja-dup
 elementary-icon-theme-git
 epiphany
+evince
 exa
 fd
 file-roller
 flatpak
 gdm-plymouth
 geary
+gedit
+gedit-plugins
 glfw-wayland
 gnome-backgrounds
+gnome-books
+gnome-calendar
 gnome-characters
+gnome-clocks
+gnome-contacts
 gnome-control-center
+gnome-dictionary
 gnome-disk-utility
+gnome-documents
+gnome-font-viewer
+gnome-games
 gnome-keyring
+gnome-maps
+gnome-music
+gnome-music
+gnome-notes
+gnome-photos
+gnome-podcasts
+gnome-screenshot
+gnome-screenshot
 gnome-shell
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
@@ -91,12 +111,17 @@ gnome-software
 gnome-software-packagekit-plugin
 gnome-system-monitor
 gnome-tweaks
+gnome-usage
 gnome-user-share
 gnu-free-fonts
+gst-libav
+gst-plugins-ugly
 gtk-engine-murrine
 gtkspell3
 gvfs
 gvfs-afc
+gvfs-goa
+gvfs-google
 gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
@@ -129,6 +154,7 @@ ripgrep
 rygel
 sd
 sound-theme-elementary
+sushi
 tokei
 tracker
 tracker-miners
@@ -165,32 +191,6 @@ xorg-xclock
 xorg-xinit
 xterm
 yay
-gedit
-evince
-gnome-photos
-gnome-music
-gnome-maps
-gnome-documents
-gnome-calendar
-gnome-contacts
-gnome-clocks
-gnome-font-viewer
-gnome-screenshot
-sushi
-gvfs-google
-gvfs-goa
-gedit-plugins
-gst-plugins-ugly
-gst-libav
-gnome-podcasts
-gnome-music
-gnome-notes
-gnome-dictionary
-gnome-games
-gnome-books
-deja-dup
-gnome-usage
-gnome-screenshot
 
 ## Boot
 grub-theme-vimix-git
@@ -208,7 +208,7 @@ ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/
 # Import public domain wallpapers
 git clone https://github.com/elementary/wallpapers.git
 mkdir -p ${PROFILE}/usr/share/backgrounds/gnome
-cp -avr ./wallpapers/backgrounds/. ${PROFILE}/usr/share/backgrounds/gnome
+cp -avr ./wallpapers/backgrounds/. ${PROFILE}/airootfs/usr/share/backgrounds/gnome
 
 # Enable our daemons
 mkdir -p ${PROFILE}/airootfs/etc/modules-load.d

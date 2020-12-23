@@ -7,7 +7,7 @@ center-new-windows=true
 [org.gnome.desktop.interface]
 gtk-theme='Adwaita'
 icon-theme='elementary'
-cursor-theme='elementary'
+cursor-theme='Adwaita'
 font-name='Inter 11'
 document-font-name='Inter 11'
 clock-show-weekday=true
@@ -23,7 +23,7 @@ theme-name='elementary'
 
 [org.gnome.shell]
 enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'pamac-updates@manjaro.org', 'emoji-selector@maestroschan.fr', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['org.gnome.Epiphany.desktop', 'io.elementary.files.desktop', 'org.gnome.Software.desktop', 'io.elementary.music.desktop', 'org.gnome.Cheese.desktop', 'io.elementary.photos.desktop', 'im.dino.Dino.desktop', 'gnome-control-center.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Maps.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Notes.desktop', 'org.gnome.Music.desktop', 'org.gnome.Cheese.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Books.desktop', 'org.gnome.Podcasts.desktop', 'org.gnome.Software.desktop', 'gnome-control-center.desktop']
 
 [org.gnome.settings-daemon.plugins.xsettings]
 hinting='slight'
@@ -39,6 +39,3 @@ intellihide=true
 apply-custom-theme=true
 multi-monitor=true
 show-trash=true
-
-[org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/]
-name="Utilities"

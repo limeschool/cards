@@ -17,8 +17,3 @@ rm -f /usr/share/xsessions/gnome-xorg.desktop
 
 chmod -R 777 /usr/share/gnome-shell/extensions/ # Ensure extensions do not experience permissions errors
 glib-compile-schemas /usr/share/glib-2.0/schemas/ # Compile w/ Cards' gschema.override
-
-# Enable task completion notifications for pantheon-terminal
-tee -a /etc/zsh/zshrc > /dev/null <<EOT
-builtin . /usr/share/io.elementary.terminal/enable-zsh-completion-notifications || builtin true
-EOT

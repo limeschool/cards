@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Marine
-Comment=This session logs you into Marine
-Exec=/usr/bin/marine
-TryExec=/usr/bin/marine
-Type=Application
-DesktopNames=Marine
-X-GDM-SessionRegisters=true

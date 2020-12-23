@@ -202,7 +202,6 @@ virtualbox-guest-utils
 EOT
 
 rm -f ${PROFILE}/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf # Remove autologin
-chmod +x ${PROFILE}/airootfs/usr/bin/marine # Set weston-session as executable
 ln -sfT dash ${PROFILE}/airootfs/usr/bin/sh # Set dash as the shell at /usr/bin/sh
 
 # Import public domain wallpapers
@@ -225,10 +224,10 @@ ln -s /lib/systemd/system/cups.socket ${PROFILE}/airootfs/etc/systemd/system/soc
 ln -s /lib/systemd/system/gdm.service ${PROFILE}/airootfs/etc/systemd/system/display-manager.service
 
 # Set Plymouth theme
-mkdir -p ${PROFILE}/airootfs/etc/alternatives
-mkdir -p ${PROFILE}/airootfs/usr/share/plymouth/themes
-ln -s  /usr/share/plymouth/themes/colorful_sliced/colorful_sliced.plymouth ${PROFILE}/airootfs/etc/alternatives/default.plymouth
-ln -s  /etc/alternatives/default.plymouth ${PROFILE}/airootfs/usr/share/plymouth/themes/default.plymouth
+#mkdir -p ${PROFILE}/airootfs/etc/alternatives
+#mkdir -p ${PROFILE}/airootfs/usr/share/plymouth/themes
+#ln -s  /usr/share/plymouth/themes/spinner/spinner.plymouth ${PROFILE}/airootfs/etc/alternatives/default.plymouth
+#ln -s  /etc/alternatives/default.plymouth ${PROFILE}/airootfs/usr/share/plymouth/themes/default.plymouth
 
 # Build & bundle the disk image
 mkdir ./out

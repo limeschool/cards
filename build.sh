@@ -180,8 +180,6 @@ gnome-screenshot
 sushi
 gvfs-google
 gvfs-goa
-evolution
-libreoffice-fresh
 gedit-plugins
 unoconv
 texlive-bin
@@ -189,7 +187,6 @@ gst-plugins-ugly
 gst-libav
 gnome-podcasts
 gnome-music
-fractal
 gnome-notes
 gnome-dictionary
 gnome-games

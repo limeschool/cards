@@ -1,7 +1,0 @@
-#! /bin/sh
-
-weston &
-sleep 5s
-export WAYLAND_DISPLAY=wayland-0
-export DISPLAY=:1
-exec io.elementary.terminal

@@ -110,7 +110,6 @@ gnome-shell-extensions
 gnome-software
 gnome-software-packagekit-plugin
 gnome-system-monitor
-gnome-tweaks
 gnome-usage
 gnome-user-share
 gnu-free-fonts

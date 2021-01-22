@@ -44,6 +44,7 @@ libhandy1 \
 pamac-aur \
 dashbinsh \
 gdm-plymouth \
+gnome-shell-git \
 gnome-shell-extension-dash-to-dock \
 gnome-shell-extension-emoji-selector-git \
 elementary-icon-theme-git \
@@ -88,7 +89,6 @@ gnome-calendar
 gnome-characters
 gnome-clocks
 gnome-contacts
-gnome-control-center
 gnome-dictionary
 gnome-disk-utility
 gnome-documents
@@ -102,11 +102,10 @@ gnome-notes
 gnome-photos
 gnome-podcasts
 gnome-screenshot
-gnome-screenshot
-gnome-shell
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-emoji-selector-git
 gnome-shell-extensions
+gnome-shell-git
 gnome-software
 gnome-software-packagekit-plugin
 gnome-system-monitor
